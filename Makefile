@@ -6,8 +6,9 @@ CFLAGS = -I includes -g
 
 CDIR = src
 
-CFILES	=	$(CDIR)/ft_printf.c		\
-			$(CDIR)/extract_param.c	\
+CFILES	=	$(CDIR)/ft_printf.c				\
+			$(CDIR)/extract_param.c			\
+			$(CDIR)/parse_list_manager.c	\
 			main.c
 
 all: $(NAME)

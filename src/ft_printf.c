@@ -1,45 +1,34 @@
 
 #include "ft_printf.h"
 
-char	*copy_raw(char *format, t_list *list)
+void	copy_raw(char *format, t_parse **list)
 {
-	/*
-	* This function copy the exact content of format
-	* in a new list element, in the raw field,
-	* until a '%' or an EOF has been encountered
-	* The other fields of this element would be null.
-	*/
-	t_list	*element;
+	t_parse	*e;
 	int	i;
 
 	i = 0;
-	element = (t_list*)malloc(sizeof(t_list));
-	element->next = null;
+	e = create();
 	while (format[i] != '\0' && format[i] != '%')
 		i++;
-	element->raw = strndup(format, i);
-	while (list->next)
-		list = list->next;
-	list->next = element;
-	return (format[i]); // return the current position in format
+	e->raw = strndup(format, i);
 }
 
-t_list	*ft_parse(char *format)
+t_parse	*ft_parse(char *format)
 {
-	t_list	*list;
+	t_parse	*list;
 
-	list = null;
+	list = NULL;
 	while (*format != '\0')
 	{
-		format = copy_raw(format, list);
-		format = extract_param(format, list);
+		copy_raw(&format, &list);
+		extract_param(&format, &list);
 	}
-	return (list_begin); // return full filled list
+	return (list); // return full filled list
 }
 
 int	ft_printf(const char *format, ...)
 {
-	t_list	*list;
+	t_parse	*list;
 	
 	list = ft_parse((char*)format);
 

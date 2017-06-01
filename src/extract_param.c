@@ -1,29 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   extract_param.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/01 15:32:46 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/01 16:03:26 by cchampou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "ft_printf.h"
 
-char    *extract_param(char *format, t_list *list)
+void	extract_param(char **format, t_parse **list)
 {
-	t_list	*element;
+	t_parse	*e;
 
-	element = (t_list*)malloc(sizeof(t_list));
-	element->next = null;
-	element->raw = null;
-	format = check_flags(format, element);
-	format = check_width(format, element);
-	format = check_precision(format, element);
-	format = check_modifiers(format, element);
-	format = check_format(format, element);
+	e = create();
+	format = check_percent(format, e);
+	format = check_flags(format, e);
+	format = check_width(format, e);
+	format = check_prec(format, e);
+	format = check_mod(format, e);
+	format = check_format(format, e);
 	return (format);
 }
 
-char	*check_flags(char *format, t_list *element)
+char	*check_flags(char *format, t_parse *e)
 {
 	size_t	i;
 
 	i = 0;
 	while (is_flag(format[i]))
 		i++;
-	element->flags = strndup(format, i);
+	e->flags = strndup(format, i);
 	return (format[i]);
 }
 
@@ -33,14 +44,14 @@ int	is_flag(char c)
 		|| c == '0');
 }
 
-char	*check_width(char *format, t_list *element)
+char	*check_width(char *format, t_parse *e)
 {
 	size_t	i;
 
 	i = 0;
 	while (is_width(format[i]))
 		i++;
-	element->width = strndup(format, i);
+	e->width = strndup(format, i);
 }
 
 int	is_width(char c)
@@ -48,17 +59,17 @@ int	is_width(char c)
 	return (c == '*' || (c >= '0' && c <= '9'))
 }
 
-char	*check_precision(char *format, t_list *element)
+char	*check_prec(char *format, t_parse *e)
 {
 	
 }
 
-char	*check_modifiers(char *format, t_list *element)
+char	*check_mod(char *format, t_parse *e)
 {
 	
 }
 
-char	*check_conv(char *format, t_list *element)
+char	*check_conv(char *format, t_parse *e)
 {
 	
 }

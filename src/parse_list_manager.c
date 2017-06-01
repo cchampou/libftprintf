@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_list_manager.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/01 15:33:12 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 15:33:35 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/01 16:07:22 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+t_parse	*create()
+{	
+	t_parse	*e;
+
+	e = (t_parse*)malloc(sizeof(t_parse));
+	e->next = NULL;
+	e->raw = NULL;
+	e->flags = NULL;
+	e->width = NULL;
+	e->prec = NULL;
+	e->mod = NULL;
+	e->conv = NULL;
+	return (e);
+}
+
+void	print(t_parse *list)
 {
-	ft_printf("test", 0);
-	return (0);
+	while (list)
+	{
+		printf("_____\n");
+		printf("raw : %s\n", list->raw);
+		printf("flags : %s\n");
+	}
 }
