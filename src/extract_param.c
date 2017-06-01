@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:46 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 16:25:38 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/01 17:07:49 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,28 @@ void	extract_param(char **format, t_parse **list)
 	t_parse	*e;
 
 	e = create();
-	format = check_percent(format, e);
-	format = check_flags(format, e);
-	format = check_width(format, e);
-	format = check_prec(format, e);
-	format = check_mod(format, e);
-	format = check_format(format, e);
-	return (format);
+	check_percent(format, e);
+	check_flags(format, e);
+	check_width(format, e);
+	check_prec(format, e);
+	check_mod(format, e);
+	check_conv(format, e);
 }
 
-char	*check_flags(char *format, t_parse *e)
+void	check_percent(char **format, t_parse *e)
+{
+	
+}
+
+void	check_flags(char **format, t_parse *e)
 {
 	size_t	i;
 
 	i = 0;
-	while (is_flag(format[i]))
+	while (is_flag((*format)[i]))
 		i++;
-	e->flags = strndup(format, i);
-	return (format[i]);
+	if (i > 0)
+		e->flags = strndup(*format, i);
 }
 
 int	is_flag(char c)
@@ -43,14 +47,15 @@ int	is_flag(char c)
 		|| c == '0');
 }
 
-char	*check_width(char *format, t_parse *e)
+void	check_width(char **format, t_parse *e)
 {
 	size_t	i;
 
 	i = 0;
-	while (is_width_or_prec(format[i]))
+	while (is_width_or_prec((*format)[i]))
 		i++;
-	e->width = strndup(format, i);
+	if (i > 0)
+		e->width = strndup(*format, i);
 }
 
 int	is_width_or_prec(char c)
@@ -58,17 +63,26 @@ int	is_width_or_prec(char c)
 	return (c == '*' || (c >= '0' && c <= '9'));
 }
 
-char	*check_prec(char *format, t_parse *e)
+void	check_prec(char **format, t_parse *e)
+{
+	int	i;
+
+	if (**format == '.')
+	{
+		i = 0;
+		while (is_width_or_prec((*format)[i]))
+			i++;
+		e->prec = strndup(*format, i);
+		*format += i; 
+	}
+}
+
+void	check_mod(char **format, t_parse *e)
 {
 	
 }
 
-char	*check_mod(char *format, t_parse *e)
-{
-	
-}
-
-char	*check_conv(char *format, t_parse *e)
+void	check_conv(char **format, t_parse *e)
 {
 	
 }

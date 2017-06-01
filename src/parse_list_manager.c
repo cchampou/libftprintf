@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 16:21:20 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/01 16:36:33 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@ t_parse	*create()
 	e->mod = NULL;
 	e->conv = NULL;
 	return (e);
+}
+
+void	push_back(t_parse **list, t_parse *e)
+{
+	t_parse	*tmp;
+
+	if (*list == NULL)
+		*list = e;
+	else
+	{
+		tmp = *list;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = e;
+	}
 }
 
 void	print(t_parse *list)

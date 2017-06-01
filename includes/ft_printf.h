@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 16:21:35 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/01 17:08:28 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,16 @@ t_parse	*ft_parse(char *format);
 void	copy_raw(char **format, t_parse **list);
 
 void	extract_param(char **format, t_parse **list);
-
-char	*check_flags(char *format, t_parse *e);
-
-char	*check_width(char *format, t_parse *e);
-
-char	*check_prec(char *format, t_parse *e);
-
-char	*check_mod(char *format, t_parse *e);
-
-char	*check_conv(char *format, t_parse *e);
+void	check_percent(char **format, t_parse *e);
+void	check_flags(char **format, t_parse *e);
+int		is_flag(char c);
+void	check_width(char **format, t_parse *e);
+int		is_width_or_prec(char c);
+void	check_prec(char **format, t_parse *e);
+void	check_mod(char **format, t_parse *e);
+void	check_conv(char **format, t_parse *e);
 
 t_parse	*create();
-
 void	print(t_parse *list);
 
 #endif
