@@ -58,7 +58,7 @@ char	*check_modifiers(char *format, t_list *element)
 	
 }
 
-char	*check_format(char *format, t_list *element)
+char	*check_conv(char *format, t_list *element)
 {
 	
 }

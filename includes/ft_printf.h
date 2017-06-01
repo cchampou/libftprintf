@@ -11,7 +11,9 @@ typedef struct		s_list
 	char		*raw;
 	char		*flags;
 	char		*width;
-	char		*precision;	
+	char		*precision;
+	char		*modifiers;
+	char		*conv;
 }			t_list;
 
 
@@ -31,6 +33,6 @@ char	*check_precision(char *format, t_list *element);
 
 char	*check_modifiers(char *format, t_list *element);
 
-char	*check_format(char *format, t_list *element);
+char	*check_conv(char *format, t_list *element);
 
 #endif
