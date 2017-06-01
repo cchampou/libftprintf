@@ -9,7 +9,6 @@ CDIR = src
 CFILES	=	$(CDIR)/ft_printf.c		\
 			$(CDIR)/extract_param.c	\
 			main.c
-			
 
 all: $(NAME)
 
