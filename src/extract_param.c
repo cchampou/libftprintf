@@ -6,10 +6,9 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:46 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 16:03:26 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/01 16:25:38 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_printf.h"
 
@@ -49,14 +48,14 @@ char	*check_width(char *format, t_parse *e)
 	size_t	i;
 
 	i = 0;
-	while (is_width(format[i]))
+	while (is_width_or_prec(format[i]))
 		i++;
 	e->width = strndup(format, i);
 }
 
-int	is_width(char c)
+int	is_width_or_prec(char c)
 {
-	return (c == '*' || (c >= '0' && c <= '9'))
+	return (c == '*' || (c >= '0' && c <= '9'));
 }
 
 char	*check_prec(char *format, t_parse *e)

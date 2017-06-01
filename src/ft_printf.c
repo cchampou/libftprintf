@@ -1,16 +1,16 @@
 
 #include "ft_printf.h"
 
-void	copy_raw(char *format, t_parse **list)
+void	copy_raw(char **format, t_parse **list)
 {
 	t_parse	*e;
 	int	i;
 
 	i = 0;
 	e = create();
-	while (format[i] != '\0' && format[i] != '%')
+	while (*format[i] != '\0' && *format[i] != '%')
 		i++;
-	e->raw = strndup(format, i);
+	e->raw = strndup(*format, i);
 }
 
 t_parse	*ft_parse(char *format)

@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 16:03:24 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/01 16:21:35 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ char	*check_mod(char *format, t_parse *e);
 char	*check_conv(char *format, t_parse *e);
 
 t_parse	*create();
+
+void	print(t_parse *list);
 
 #endif

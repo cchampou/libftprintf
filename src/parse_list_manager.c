@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 16:07:22 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/01 16:21:20 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	print(t_parse *list)
 	{
 		printf("_____\n");
 		printf("raw : %s\n", list->raw);
-		printf("flags : %s\n");
+		printf("flags : %s\n", list->flags);
+		printf("width : %s\n", list->width);
+		printf("prec : %s\n", list->prec);
+		printf("mod : %s\n", list->mod);
+		printf("conv : %s\n", list->conv);
+		list = list->next;
 	}
 }
