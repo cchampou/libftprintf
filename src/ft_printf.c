@@ -1,40 +1,46 @@
 
 #include "ft_printf.h"
 
-void	copy_raw(char **format, t_parse **list)
+int		copy_raw(char **s, t_parse **list)
 {
 	t_parse	*e;
 	int	i;
 
-	i = 0;
-	e = create();
-	while (*format[i] != '\0' && *format[i] != '%')
-		i++;
-	e->raw = strndup(*format, i);
-}
-
-t_parse	*ft_parse(char *format)
-{
-	t_parse	*list;
-
-	list = NULL;
-	while (*format != '\0')
+	if (**s != '\0' && **s != '%')
 	{
-		copy_raw(&format, &list);
-		extract_param(&format, &list);
+		printf("---\nRaw string detected on char %c\n", **s);
+		i = 0;
+		e = create();
+		while ((*s)[i] != '\0' && (*s)[i] != '%')
+			i++;
+		e->raw = strndup(*s, i);
+		push_back(list, e);
+		*s = *s + i;
 	}
-	return (list); // return full filled list
+	return (0);
 }
 
-int	ft_printf(const char *format, ...)
+int		ft_parse(char *s, t_parse **list)
+{
+	while (*s != '\0')
+	{
+		if (copy_raw(&s, list) == -1
+		|| parse_param(&s, list) == -1)
+		{
+			return (-1);
+		}
+	}
+	return (0);
+}
+
+int	ft_printf(const char *s, ...)
 {
 	t_parse	*list;
 	
-	list = ft_parse((char*)format);
-
-	// At this point, no need to read format anymore
-	// Now we need to treat each arg according to the list
-	// And then print the result
-
+	list = NULL;
+	if (!ft_parse((char*)s, &list))
+		print(list);
+	else
+		return (-1);
 	return (0); // Must return the number of printed characters
 }

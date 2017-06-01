@@ -6,14 +6,18 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:33:12 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 15:33:35 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/01 23:21:39 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	ft_printf("test", 0);
-	return (0);
+	if (ac != 2)
+	{
+		exit(-1);
+	}
+	printf("%++++++++d\n", 12);
+	return (ft_printf(av[1]));
 }
