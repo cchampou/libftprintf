@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:33:12 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 23:21:39 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/01 23:50:32 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 int	main(int ac, char **av)
 {
 	if (ac != 2)
-	{
 		exit(-1);
-	}
-	printf("%++++++++d\n", 12);
 	return (ft_printf(av[1]));
 }

@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mod_checker.c                                      :+:      :+:    :+:   */
+/*   prec_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/01 23:27:47 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 23:28:02 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/01 23:28:46 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/02 00:33:36 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	check_mod(char **s, t_parse *e)
+int	is_width_or_prec(char c)
 {
-	char	*tmp;
+	return (c == '*' || (c >= '0' && c <= '9'));
+}
 
-	tmp = *s;
-	printf("%c%c\n", *tmp, *(tmp + 1));
-	if ((*tmp == 'h' && *(tmp + 1) == 'h')
-	|| (*tmp == 'l' && *(tmp + 1) == 'l'))
+void	check_prec(char **s, t_parse *e)
+{
+	int	i;
+
+	if (**s == '.')
 	{
-		printf("Mod detected\n");
-		e->mod = strndup(*s, 2);
-		*s = *s + 2;
-	}
-	else if (**s == 'h' || **s == 'l' || **s == 'j'
-	|| **s == 'z')
-	{
-		printf("Mod detected\n");
-		e->mod = strndup(*s, 1);
-		(*s)++;
+		// printf("Precision detected\n");
+		i = 1;
+		while (is_width_or_prec((*s)[i]))
+			i++;
+		e->prec = strndup(*s, i);
+		*s += i;
 	}
 }

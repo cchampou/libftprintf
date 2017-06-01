@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 23:29:17 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 23:29:29 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/02 00:33:40 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_width(char **s, t_parse *e)
 		i++;
 	if (i > 0)
 	{
-		printf("Width detected\n");
+		// printf("Width detected\n");
 		e->width = strndup(*s, i);
 		*s = *s + i;
 	}

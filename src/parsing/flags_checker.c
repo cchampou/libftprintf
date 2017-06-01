@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prec_checker.c                                     :+:      :+:    :+:   */
+/*   flags_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/01 23:28:46 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 23:28:58 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/01 23:30:15 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/02 00:32:38 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	is_width_or_prec(char c)
+void	check_flags(char **s, t_parse *e)
 {
-	return (c == '*' || (c >= '0' && c <= '9'));
+	size_t	i;
+
+	i = 0;
+	while (is_flag((*s)[i]))
+		i++;
+	if (i > 0)
+	{
+		e->flags = strndup(*s, i);
+		*s = *s + i;
+		// printf("One or more flag(s) detected\n");
+	} else {
+		// printf("No flag detected\n");
+	}
 }
 
-void	check_prec(char **s, t_parse *e)
+int		is_flag(char c)
 {
-	int	i;
-
-	if (**s == '.')
-	{
-		printf("Precision detected\n");
-		i = 1;
-		while (is_width_or_prec((*s)[i]))
-			i++;
-		e->prec = strndup(*s, i);
-		*s += i;
-	}
+	return (c == '-' || c == '+' || c == ' ' || c == '#'
+		|| c == '0');
 }

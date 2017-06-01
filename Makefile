@@ -7,14 +7,14 @@ CFLAGS = -I includes -g -Wall -Wextra -Werror
 CDIR = src
 
 CFILES	=	$(CDIR)/ft_printf.c				\
-			$(CDIR)/parse_param.c			\
-			$(CDIR)/parse_list_manager.c	\
-			$(CDIR)/conv_checker.c			\
-			$(CDIR)/flags_checker.c			\
-			$(CDIR)/mod_checker.c			\
-			$(CDIR)/percent_checker.c		\
-			$(CDIR)/prec_checker.c			\
-			$(CDIR)/width_checker.c			\
+			$(CDIR)/parsing/parse_param.c			\
+			$(CDIR)/parsing/parse_list_manager.c	\
+			$(CDIR)/parsing/conv_checker.c			\
+			$(CDIR)/parsing/flags_checker.c			\
+			$(CDIR)/parsing/len_checker.c			\
+			$(CDIR)/parsing/percent_checker.c		\
+			$(CDIR)/parsing/prec_checker.c			\
+			$(CDIR)/parsing/width_checker.c			\
 			main.c
 
 all: $(NAME)

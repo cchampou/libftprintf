@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 23:47:03 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/02 00:42:26 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct		s_parse
 	char			*flags;
 	char			*width;
 	char			*prec;
-	char			*mod;
+	char			*len;
 	char			*conv;
 }					t_parse;
 
@@ -39,7 +39,7 @@ int					is_flag(char c);
 void				check_width(char **s, t_parse *e);
 int					is_width_or_prec(char c);
 void				check_prec(char **s, t_parse *e);
-void				check_mod(char **s, t_parse *e);
+void				check_len(char **s, t_parse *e);
 int					check_conv(char **s, t_parse *e);
 int					check_percent(char **s, t_parse *e);
 t_parse				*create();

@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags_checker.c                                    :+:      :+:    :+:   */
+/*   mod_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/01 23:30:15 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/01 23:30:33 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/01 23:27:47 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/02 00:42:26 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	check_flags(char **s, t_parse *e)
+void	check_len(char **s, t_parse *e)
 {
-	size_t	i;
+	char	*tmp;
 
-	i = 0;
-	while (is_flag((*s)[i]))
-		i++;
-	if (i > 0)
+	tmp = *s;
+	if ((*tmp == 'h' && *(tmp + 1) == 'h')
+	|| (*tmp == 'l' && *(tmp + 1) == 'l'))
 	{
-		e->flags = strndup(*s, i);
-		*s = *s + i;
-		printf("One or more flag(s) detected\n");
-	} else {
-		printf("No flag detected\n");
+		// printf("len detected\n");
+		e->len = strndup(*s, 2);
+		*s = *s + 2;
 	}
-}
-
-int		is_flag(char c)
-{
-	return (c == '-' || c == '+' || c == ' ' || c == '#'
-		|| c == '0');
+	else if (**s == 'h' || **s == 'l' || **s == 'j'
+	|| **s == 'z')
+	{
+		// printf("len detected\n");
+		e->len = strndup(*s, 1);
+		(*s)++;
+	}
 }
