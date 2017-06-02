@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/02 00:42:26 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/02 02:17:22 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int					check_percent(char **s, t_parse *e);
 t_parse				*create();
 void				push_back(t_parse **list, t_parse *e);
 void				print(t_parse *list);
+void				freelist(t_parse **list);
 
 #endif

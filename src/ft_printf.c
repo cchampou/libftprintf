@@ -41,5 +41,6 @@ int	ft_printf(const char *s, ...)
 	if (ft_parse((char*)s, &list) == -1)
 		return (-1);
 	print(list);
+	freelist(&list);
 	return (0); // Must return the number of printed characters
 }
