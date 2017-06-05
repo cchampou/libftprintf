@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/05 12:43:33 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/05 16:34:12 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_parse
 	int				plus;
 	int				minus;
 	int				zero;
+	int				space;
 	int				width;
 	int				width_value;
 	int				prec;

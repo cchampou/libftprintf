@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/05 12:46:29 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/05 16:35:51 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_parse	*create()
 	e->plus = 0;
 	e->minus = 0;
 	e->zero = 0;
+	e->space = 0;
 	e->width = 0;
 	e->width_value = 0;
 	e->prec = 0;
@@ -57,6 +58,7 @@ void	print(t_parse *list)
 		printf("+ : %d\n", list->plus);
 		printf("- : %d\n", list->minus);
 		printf("0 : %d\n", list->zero);
+		printf("space : %d\n", list->space);
 		printf("width : %d\n", list->width_value);
 		printf("prec : %d\n", list->prec_value);
 		printf("len : %s\n", list->len);
