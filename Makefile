@@ -9,7 +9,7 @@ CDIR = src
 CFILES	=	$(CDIR)/ft_printf.c				\
 			$(CDIR)/parsing/parse_param.c			\
 			$(CDIR)/parsing/parse_list_manager.c	\
-			$(CDIR)/parsing/conv_checker.c			\
+			$(CDIR)/parsing/spec_checker.c			\
 			$(CDIR)/parsing/flags_checker.c			\
 			$(CDIR)/parsing/len_checker.c			\
 			$(CDIR)/parsing/percent_checker.c		\

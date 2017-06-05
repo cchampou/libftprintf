@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 23:30:15 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/02 00:32:38 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/05 12:22:05 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,21 @@ void	check_flags(char **s, t_parse *e)
 	size_t	i;
 
 	i = 0;
-	while (is_flag((*s)[i]))
+	while (is_flag((*s)[i], e))
 		i++;
 	if (i > 0)
-	{
-		e->flags = strndup(*s, i);
 		*s = *s + i;
-		// printf("One or more flag(s) detected\n");
-	} else {
-		// printf("No flag detected\n");
-	}
 }
 
-int		is_flag(char c)
+int		is_flag(char c, t_parse *e)
 {
-	return (c == '-' || c == '+' || c == ' ' || c == '#'
-		|| c == '0');
+	if (c == '#')
+		e->hashtag = 1;
+	if (c == '+')
+		e->plus = 1;
+	if (c == '-')
+		e->minus = 1;
+	if (c == '0')
+		e->zero = 1;
+	return (c == '-' || c == '+' || c == ' ' || c == '#' || c == '0');
 }

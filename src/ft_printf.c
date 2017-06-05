@@ -8,7 +8,6 @@ int		copy_raw(char **s, t_parse **list)
 
 	if (**s != '\0' && **s != '%')
 	{
-		// printf("---\nRaw string detected on char %c\n", **s);
 		i = 0;
 		e = create();
 		while ((*s)[i] != '\0' && (*s)[i] != '%')
@@ -42,5 +41,5 @@ int	ft_printf(const char *s, ...)
 		return (-1);
 	print(list);
 	freelist(&list);
-	return (0); // Must return the number of printed characters
+	return (0);
 }

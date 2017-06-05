@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/02 00:59:06 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/05 12:46:29 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ t_parse	*create()
 	e = (t_parse*)malloc(sizeof(t_parse));
 	e->next = NULL;
 	e->raw = NULL;
-	e->flags = NULL;
-	e->width = NULL;
-	e->prec = NULL;
+	e->hashtag = 0;
+	e->plus = 0;
+	e->minus = 0;
+	e->zero = 0;
+	e->width = 0;
+	e->width_value = 0;
+	e->prec = 0;
+	e->prec_value = 0;
 	e->len = NULL;
-	e->conv = NULL;
+	e->spec = NULL;
 	return (e);
 }
 
@@ -48,11 +53,14 @@ void	print(t_parse *list)
 	{
 		printf("_____________\n");
 		printf("raw : %s\n", list->raw);
-		printf("flags : %s\n", list->flags);
-		printf("width : %s\n", list->width);
-		printf("prec : %s\n", list->prec);
+		printf("# : %d\n", list->hashtag);
+		printf("+ : %d\n", list->plus);
+		printf("- : %d\n", list->minus);
+		printf("0 : %d\n", list->zero);
+		printf("width : %d\n", list->width_value);
+		printf("prec : %d\n", list->prec_value);
 		printf("len : %s\n", list->len);
-		printf("conv : %s\n", list->conv);
+		printf("spec : %s\n", list->spec);
 		list = list->next;
 	}
 }
@@ -65,16 +73,10 @@ void	freelist(t_parse **list)
 		tmp = (*list)->next;
 		if ((*list)->raw)
 			free((*list)->raw);
-		if ((*list)->flags)
-			free((*list)->flags);
-		if ((*list)->width)
-			free((*list)->width);
-		if ((*list)->prec)
-			free((*list)->prec);
 		if ((*list)->len)
 			free((*list)->len);
-		if ((*list)->conv)
-			free((*list)->conv);
+		if ((*list)->spec)
+			free((*list)->spec);
 		free(*list);
 		*list = tmp;
 	}
