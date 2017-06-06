@@ -34,20 +34,24 @@ void	treat_elem(t_parse *e)
 
 void	treat_raw(t_parse *e, char **buffer)
 {
-	
+	(void)e;
+	(void)buffer;
 }
 
 void	apply_width(t_parse *e, char **buffer)
 {
-
+	(void)e;
+	(void)buffer;
 }
 
 void	apply_flags(t_parse *e, char **buffer)
 {
-
+	(void)e;
+	(void)buffer;
 }
 
 void	apply_prec(t_parse *e, char **buffer)
 {
-
+	(void)e;
+	(void)buffer;
 }
