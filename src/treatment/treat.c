@@ -26,13 +26,14 @@ void	treat_elem(t_parse *e)
 	char	*buffer;
 
 	buffer = NULL;
-	treat_raw(e, &buffer);
+	get_arg(e);
+	apply_raw(e, &buffer);
 	apply_width(e, &buffer);
 	apply_flags(e, &buffer);
 	apply_prec(e, &buffer);
 }
 
-void	treat_raw(t_parse *e, char **buffer)
+void	apply_raw(t_parse *e, char **buffer)
 {
 	(void)e;
 	(void)buffer;

@@ -24,6 +24,7 @@ $(NAME):
 	$(CC) $(CFLAGS) -o $(NAME) $(CFILES)
 
 clean:
+	rm -rf printf.dSYM
 
 fclean: clean
 	rm -f printf
