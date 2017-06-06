@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/05 16:34:12 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/06 11:55:31 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,11 @@ t_parse				*create();
 void				push_back(t_parse **list, t_parse *e);
 void				print(t_parse *list);
 void				freelist(t_parse **list);
+void				treat_list(t_parse **list);
+void				treat_elem(t_parse *e);
+void				treat_raw(t_parse *e, char **buffer);
+void				apply_width(t_parse *e, char **buffer);
+void				apply_flags(t_parse *e, char **buffer);
+void				apply_prec(t_parse *e, char **buffer);
 
 #endif
