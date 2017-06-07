@@ -15,7 +15,9 @@ CFILES	=	$(CDIR)/ft_printf.c				\
 			$(CDIR)/parsing/percent_checker.c		\
 			$(CDIR)/parsing/prec_checker.c			\
 			$(CDIR)/parsing/width_checker.c			\
-			$(CDIR)/treatment/treat.c				\
+			$(CDIR)/treatment/treat.c			\
+			$(CDIR)/treatment/args.c			\
+			$(CDIR)/treatment/get_args_1.c			\
 			main.c
 
 all: $(NAME)

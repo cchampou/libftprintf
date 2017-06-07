@@ -46,12 +46,14 @@ int		ft_parse(char *s, t_parse **list)
 int	ft_printf(const char *s, ...)
 {
 	t_parse	*list;
+	va_list	ap;
 	
+	va_start(ap, s);
 	list = NULL;
 	if (ft_parse((char*)s, &list) == -1)
 		return (-1);
 	print(list);
-	treat_list(&list);
+	treat_list(&list, &ap);
 	freelist(&list);
 	return (0);
 }
