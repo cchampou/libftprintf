@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/08 15:52:23 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 15:52:27 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/08 16:00:34 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	get_int(t_parse *e, va_list *ap)
 {
 	if (e->len == NULL)
-		get_raw_int
+		printf("Get an int\n");
 	else if (!strcmp(e->len, "hh"))
 		printf("Get a signed char\n");
 	else if (!strcmp(e->len, "h"))

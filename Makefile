@@ -18,6 +18,7 @@ CFILES	=	$(CDIR)/ft_printf.c				\
 			$(CDIR)/treatment/treat.c			\
 			$(CDIR)/treatment/args.c			\
 			$(CDIR)/treatment/get_args_1.c			\
+			$(CDIR)/treatment/get_args_2.c			\
 			main.c
 
 all: $(NAME)
