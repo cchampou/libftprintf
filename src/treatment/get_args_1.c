@@ -3,16 +3,42 @@
 
 void	get_int(t_parse *e, va_list *ap)
 {
+	if (e->len == NULL)
+		printf("Get an int\n");
+	else if (!strcmp(e->len, "hh"))
+		printf("Get a signed char\n");
+	else if (!strcmp(e->len, "h"))
+		printf("Get a short int\n");
+	else if (!strcmp(e->len, "l"))
+		printf("Get a long int\n");
+	else if (!strcmp(e->len, "ll"))
+		printf("Get a long long int\n");
+	else if (!strcmp(e->len, "j"))
+		printf("Get a intmax\n");
+	else if (!strcmp(e->len, "z"))
+		printf("Get a size_t\n");
 	(void)e;
 	(void)ap;
-	printf("Hello, i'm an int\n");
 }
 
 void	get_uint(t_parse *e, va_list *ap)
 {
+	if (e->len == NULL)
+		printf("Get an unsigned int\n");
+	else if(!strcmp(e->len, "hh"))
+		printf("Get an unsigned char\n");
+	else if (!strcmp(e->len, "h"))
+		printf("Get an unsigned short int\n");
+	else if (!strcmp(e->len, "l"))
+		printf("Get an unsigned long int\n");
+	else if (!strcmp(e->len, "ll"))
+		printf("Get an unsigned long long int\n");
+	else if (!strcmp(e->len, "j"))
+		printf("Get an uintmax_t\n");
+	else if (!strcmp(e->len, "z"))
+		printf("Get a size_t\n");
 	(void)e;
 	(void)ap;
-	printf("Hello, i'm an uint\n");
 }
 
 void	get_char(t_parse *e, va_list *ap)
