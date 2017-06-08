@@ -2,7 +2,7 @@ NAME = printf
 
 CC = clang
 
-CFLAGS = -I includes -g -Wall -Wextra -Werror
+CFLAGS = -I includes -I libft -g -Wall -Wextra -Werror
 
 CDIR = src
 
@@ -24,12 +24,15 @@ CFILES	=	$(CDIR)/ft_printf.c				\
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) -o $(NAME) $(CFILES)
+	make -C libft
+	$(CC) $(CFLAGS) -o $(NAME) $(CFILES) libft/libft.a
 
 clean:
+	make -C libft clean
 	rm -rf printf.dSYM
 
 fclean: clean
+	make -C libft fclean
 	rm -f printf
 
 .PHONY: clean
