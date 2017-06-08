@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 16:00:34 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/08 17:33:31 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,19 @@
 void	get_int(t_parse *e, va_list *ap)
 {
 	if (e->len == NULL)
-		printf("Get an int\n");
+		extract_int(e, ap);
 	else if (!strcmp(e->len, "hh"))
-		printf("Get a signed char\n");
+		extract_schar(e, ap);
 	else if (!strcmp(e->len, "h"))
-		printf("Get a short int\n");
+		extract_sint(e, ap);
 	else if (!strcmp(e->len, "l"))
-		printf("Get a long int\n");
+		extract_lint(e, ap);
 	else if (!strcmp(e->len, "ll"))
 		printf("Get a long long int\n");
 	else if (!strcmp(e->len, "j"))
 		printf("Get a intmax\n");
 	else if (!strcmp(e->len, "z"))
 		printf("Get a size_t\n");
-	(void)e;
-	(void)ap;
 }
 
 void	get_uint(t_parse *e, va_list *ap)

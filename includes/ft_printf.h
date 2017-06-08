@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 16:09:21 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/08 17:43:36 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int				check_spec(char **s, t_parse *e);
 int				check_percent(char **s, t_parse *e);
 t_parse				*create();
 void				push_back(t_parse **list, t_parse *e);
-void				print(t_parse *list);
+void				print(t_parse **list);
 void				freelist(t_parse **list);
 void				treat_list(t_parse **list, va_list *ap);
 void				treat_elem(t_parse *e, va_list *ap);
@@ -66,6 +66,10 @@ void				get_int(t_parse *e, va_list *ap);
 void				get_uint(t_parse *e, va_list *ap);
 void				get_char(t_parse *e, va_list *ap);
 void				get_string(t_parse *e, va_list *ap);
+void				extract_int(t_parse *e, va_list *ap);
+void				extract_schar(t_parse *e, va_list *ap);
+void				extract_sint(t_parse *e, va_list *ap);
+void				extract_lint(t_parse *e, va_list *ap);
 
 void				apply_raw(t_parse *e);
 void				apply_width(t_parse *e);

@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 11:31:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/06 11:56:17 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/08 16:58:02 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	treat_list(t_parse **list, va_list *ap)
 {
-	while (*list)
+	t_parse	*tmp;
+
+	tmp = *list;
+	while (tmp)
 	{
-		treat_elem(*list, ap);
-		*list = (*list)->next;
+		treat_elem(tmp, ap);
+		tmp = tmp->next;
 	}
 }
 

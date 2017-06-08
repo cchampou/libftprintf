@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/05 16:35:51 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/08 17:01:28 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,25 @@ void	push_back(t_parse **list, t_parse *e)
 	}
 }
 
-void	print(t_parse *list)
+void	print(t_parse **list)
 {
-	while (list)
+	t_parse	*tmp;
+
+	tmp = *list;
+	while (tmp)
 	{
 		printf("_____________\n");
-		printf("raw : %s\n", list->raw);
-		printf("# : %d\n", list->hashtag);
-		printf("+ : %d\n", list->plus);
-		printf("- : %d\n", list->minus);
-		printf("0 : %d\n", list->zero);
-		printf("space : %d\n", list->space);
-		printf("width : %d\n", list->width_value);
-		printf("prec : %d\n", list->prec_value);
-		printf("len : %s\n", list->len);
-		printf("spec : %s\n", list->spec);
-		list = list->next;
+		printf("raw : %s\n", tmp->raw);
+		printf("# : %d\n", tmp->hashtag);
+		printf("+ : %d\n", tmp->plus);
+		printf("- : %d\n", tmp->minus);
+		printf("0 : %d\n", tmp->zero);
+		printf("space : %d\n", tmp->space);
+		printf("width : %d\n", tmp->width_value);
+		printf("prec : %d\n", tmp->prec_value);
+		printf("len : %s\n", tmp->len);
+		printf("spec : %s\n", tmp->spec);
+		tmp = tmp->next;
 	}
 }
 

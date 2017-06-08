@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:33:12 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/05 15:45:12 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/08 17:43:09 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	if (ac != 2)
-		exit(-1);
-	return (ft_printf(av[1]));
+	(void)av;
+	(void)ac;
+	printf("Test d'affichage : %ld\n", (long)2147483647);
+	ft_printf("Test d'affichage : %ld\n", (long)2147483647);
+	return (0);
 }
