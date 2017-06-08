@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:20:10 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 20:04:48 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/08 21:43:31 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
 char				*ft_imtoa(intmax_t n);
 char				*ft_uimtoa(uintmax_t n);
+char				*ft_ouimtoa(uintmax_t n);
+char				*ft_xuimtoa(uintmax_t n);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
