@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_args_1.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/08 15:52:23 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/08 15:52:27 by cchampou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
 void	get_int(t_parse *e, va_list *ap)
 {
 	if (e->len == NULL)
-		printf("Get an int\n");
+		get_raw_int
 	else if (!strcmp(e->len, "hh"))
 		printf("Get a signed char\n");
 	else if (!strcmp(e->len, "h"))
