@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 19:15:34 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/08 20:43:55 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,33 +33,31 @@ void	get_int(t_parse *e, va_list *ap)
 void	get_uint(t_parse *e, va_list *ap)
 {
 	if (e->len == NULL)
-		printf("Get an unsigned int\n");
+		e->raw = ft_strdup(ft_uimtoa(va_arg(*ap, unsigned int)));
 	else if(!strcmp(e->len, "hh"))
-		printf("Get an unsigned char\n");
+		e->raw = ft_strdup(ft_uimtoa((unsigned char)va_arg(*ap, unsigned int)));
 	else if (!strcmp(e->len, "h"))
-		printf("Get an unsigned short int\n");
+		e->raw = ft_strdup(ft_uimtoa((unsigned short int)va_arg(*ap, unsigned int)));
 	else if (!strcmp(e->len, "l"))
-		printf("Get an unsigned long int\n");
+		e->raw = ft_strdup(ft_uimtoa((unsigned long int)va_arg(*ap, uintmax_t)));
 	else if (!strcmp(e->len, "ll"))
-		printf("Get an unsigned long long int\n");
+		e->raw = ft_strdup(ft_uimtoa(
+					(unsigned long long int)va_arg(*ap, uintmax_t)));
 	else if (!strcmp(e->len, "j"))
-		printf("Get an uintmax_t\n");
+		e->raw = ft_strdup(ft_uimtoa(va_arg(*ap, uintmax_t)));
 	else if (!strcmp(e->len, "z"))
-		printf("Get a size_t\n");
-	(void)e;
-	(void)ap;
+		e->raw = ft_strdup(ft_uimtoa((size_t)va_arg(*ap, uintmax_t)));
 }
 
 void	get_char(t_parse *e, va_list *ap)
 {
-	(void)e;
-	(void)ap;
-	printf("Hello, i'm a char\n");
+	char	tmp;
+
+	tmp = (char)va_arg(*ap, int);
+	e->raw = ft_strndup(&tmp, 1);
 }
 
 void	get_string(t_parse *e, va_list *ap)
 {
-	(void)e;
-	(void)ap;
-	printf("Hello, i'm a string\n");
+	e->raw = ft_strdup(va_arg(*ap, char *));
 }

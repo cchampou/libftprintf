@@ -6,7 +6,6 @@ const t_get	g_get[] =
 	{'d', &get_int},
 	{'D', &get_int},
 	{'i', &get_int},
-	{'c', &get_int},
 	{'u', &get_uint},
 	{'U', &get_uint},
 	{'o', &get_uint},
@@ -27,5 +26,5 @@ void	get_arg(t_parse *e, va_list *ap)
 	i = 0;
 	while (g_get[i].spec != 0 && g_get[i].spec != e->spec[0])
 		i++;
-	g_get[i].f(e, ap);	
+	g_get[i].f(e, ap);
 }

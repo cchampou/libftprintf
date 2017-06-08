@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 19:15:55 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/08 20:16:21 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <string.h>
 # include "libft.h"
+# include <limits.h>
 
 typedef struct			s_parse
 {

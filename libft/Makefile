@@ -6,7 +6,7 @@
 #    By: cchampou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 20:26:57 by cchampou          #+#    #+#              #
-#    Updated: 2017/06/08 18:17:35 by cchampou         ###   ########.fr        #
+#    Updated: 2017/06/08 20:02:20 by cchampou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ C_FILES = 	ft_strlen.c		\
 			ft_strsplit.c	\
 			ft_itoa.c		\
 			ft_imtoa.c		\
+			ft_uimtoa.c		\
 			ft_putchar.c	\
 			ft_putstr.c		\
 			ft_putendl.c	\
