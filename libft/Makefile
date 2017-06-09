@@ -6,13 +6,14 @@
 #    By: cchampou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 20:26:57 by cchampou          #+#    #+#              #
-#    Updated: 2017/06/08 21:41:29 by cchampou         ###   ########.fr        #
+#    Updated: 2017/06/09 14:16:38 by cchampou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 C_FILES = 	ft_strlen.c		\
+			ft_strtoupper.c	\
 			ft_toupper.c	\
 			ft_tolower.c	\
 			ft_isascii.c	\

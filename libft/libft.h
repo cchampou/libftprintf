@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:20:10 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 21:43:31 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/09 14:16:19 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct		s_list
 }					t_list;
 
 size_t				ft_strlen(const char *s);
+char				*ft_strtoupper(char *s);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isascii(int c);

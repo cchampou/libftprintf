@@ -1,50 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   treat.c                                            :+:      :+:    :+:   */
+/*   apply_width.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/06 11:31:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/09 17:15:44 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/09 17:12:18 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/09 17:40:27 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	treat_list(t_parse **list, va_list *ap)
+void	apply_width(t_parse *e)
 {
-	t_parse	*tmp;
+	int		len;
 
-	tmp = *list;
-	while (tmp)
+	len = ft_strlen(e->raw);
+	if (len < e->width_value)
 	{
-		treat_elem(tmp, ap);
-		tmp = tmp->next;
+		if (e->zero)
+			e->raw = push_left(e->raw, '0', e->width_value - len);
+		else
+			e->raw = push_left(e->raw, ' ', e->width_value - len);
 	}
-}
-
-void	treat_elem(t_parse *e, va_list *ap)
-{
-	char	*buffer;
-
-	buffer = NULL;
-	if (e->spec)
-	{
-		get_arg(e, ap);
-		apply_flags(e);
-		apply_width(e);
-		apply_prec(e);
-		print_elem(e);
-	}
-}
-
-void	apply_prec(t_parse *e)
-{
-	(void)e;
-}
-
-void	print_elem(t_parse *e)
-{
-	(void)e;
 }

@@ -1,50 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   treat.c                                            :+:      :+:    :+:   */
+/*   strutils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/06 11:31:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/09 17:15:44 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/09 14:58:40 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/09 17:52:57 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	treat_list(t_parse **list, va_list *ap)
+char	*push_left(char *s, char c, size_t nb)
 {
-	t_parse	*tmp;
+	size_t	len;
+	char	*sout;
+	size_t	i;
 
-	tmp = *list;
-	while (tmp)
+	i = 0;
+	len = ft_strlen(s);
+	len += nb;
+	sout = (char*)malloc(sizeof(char) * (len + 1));
+	ft_strcpy(sout + nb, s);
+	if (s[i] == '-' || s[i] == '+')
 	{
-		treat_elem(tmp, ap);
-		tmp = tmp->next;
+		sout[i] = s[i];
+		i++;
+		nb++;
 	}
-}
-
-void	treat_elem(t_parse *e, va_list *ap)
-{
-	char	*buffer;
-
-	buffer = NULL;
-	if (e->spec)
-	{
-		get_arg(e, ap);
-		apply_flags(e);
-		apply_width(e);
-		apply_prec(e);
-		print_elem(e);
-	}
-}
-
-void	apply_prec(t_parse *e)
-{
-	(void)e;
-}
-
-void	print_elem(t_parse *e)
-{
-	(void)e;
+	while (i < nb)
+		sout[i++] = c;
+	free(s);
+	return (sout);
 }

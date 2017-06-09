@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 22:04:45 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/09 16:43:11 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,15 @@ void				get_int(t_parse *e, va_list *ap);
 void				get_uint(t_parse *e, va_list *ap);
 void				get_ouint(t_parse *e, va_list *ap);
 void				get_xuint(t_parse *e, va_list *ap);
-
 void				get_char(t_parse *e, va_list *ap);
 void				get_string(t_parse *e, va_list *ap);
-
 void				apply_width(t_parse *e);
 void				apply_flags(t_parse *e);
 void				apply_prec(t_parse *e);
 void				print_elem(t_parse *e);
+void				apply_space(t_parse *e);
+char				*push_left(char *s, char c, size_t nb);
+void				apply_plus(t_parse *e);
+void				apply_hashtag(t_parse *e);
+
 #endif

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/01 15:33:12 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/09 17:53:36 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/09 14:13:05 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/09 14:15:48 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strtoupper(char *s)
 {
-	(void)av;
-	(void)ac;
-	printf("Test d'affichage : %03d\n", -42);
-	ft_printf("%03d", -42);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		s[i] = ft_toupper(s[i]);
+		i++;
+	}
+	return (s);
 }

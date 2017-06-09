@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 21:40:27 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 21:56:13 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/09 17:14:15 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ static int	count_digits(uintmax_t nb)
 	return (digits);
 }
 
-static char	convert_hexa(int c)
+static char	convert_hexa(uintmax_t c)
 {
-	if (c >= 0 && c <= 9)
+	if (c <= 9)
 		return (c + '0');
 	if (c == 10)
 		return ('a');
-	if (c == 10)
+	if (c == 11)
 		return ('b');
-	if (c == 10)
+	if (c == 12)
 		return ('c');
-	if (c == 10)
+	if (c == 13)
 		return ('d');
-	if (c == 10)
+	if (c == 14)
 		return ('e');
-	if (c == 10)
+	if (c == 15)
 		return ('f');
 	return (0);
 

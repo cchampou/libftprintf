@@ -2,7 +2,7 @@ NAME = printf
 
 CC = clang
 
-CFLAGS = -I includes -I libft -g -Wall -Wextra -Werror
+CFLAGS = -I includes -I libft
 
 CDIR = src
 
@@ -19,6 +19,9 @@ CFILES	=	$(CDIR)/ft_printf.c				\
 			$(CDIR)/treatment/args.c			\
 			$(CDIR)/treatment/get_args_1.c			\
 			$(CDIR)/treatment/get_args_2.c			\
+			$(CDIR)/treatment/apply_flags.c			\
+			$(CDIR)/treatment/strutils.c			\
+			$(CDIR)/treatment/apply_width.c			\
 			main.c
 
 all: $(NAME)
