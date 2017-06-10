@@ -16,6 +16,7 @@ const t_get	g_get[] =
 	{'C', &get_char},
 	{'s', &get_string},
 	{'S', &get_string},
+	{'p', &get_pointer},
 	{0, NULL}
 };
 

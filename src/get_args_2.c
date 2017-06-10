@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 15:52:11 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/09 16:45:38 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/10 11:16:18 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	get_ouint(t_parse *e, va_list *ap)
 {
 	if (e->len == NULL)
-		e->raw = ft_strdup(ft_ouimtoa((unsigned int)va_arg(*ap, int)));
+		e->raw = ft_strdup(ft_ouimtoa((unsigned int)va_arg(*ap, uintmax_t)));
 	else if (!strcmp(e->len, "hh"))
 		e->raw = ft_strdup(ft_ouimtoa((signed char)va_arg(*ap, int)));
 	else if (!strcmp(e->len, "h"))

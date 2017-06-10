@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 20:43:55 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/10 12:07:16 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,30 @@ void	get_char(t_parse *e, va_list *ap)
 	char	tmp;
 
 	tmp = (char)va_arg(*ap, int);
-	e->raw = ft_strndup(&tmp, 1);
+	if (tmp)
+		e->raw = ft_strndup(&tmp, 1);
+	else
+	{
+		e->raw = ft_strdup("");
+		e->out = 1;
+	}
 }
 
 void	get_string(t_parse *e, va_list *ap)
 {
-	e->raw = ft_strdup(va_arg(*ap, char *));
+	char	*tmp;
+
+	tmp = va_arg(*ap, char *);
+	if (tmp)
+		e->raw = ft_strdup(tmp);
+	else
+		e->raw = ft_strdup("(null)");
+}
+
+void	get_pointer(t_parse *e, va_list *ap)
+{
+	e->spec = ft_strdup("x");
+	e->len = ft_strdup("ll");
+	e->hashtag = 1;
+	get_xuint(e, ap);
 }

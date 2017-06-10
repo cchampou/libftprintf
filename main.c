@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_param.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/01 15:32:46 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 11:58:01 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/10 10:49:51 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/10 12:05:49 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		parse_param(char **s, t_parse **list)
+int	main(void)
 {
-	t_parse	*e;
+	int	r1;
+	int	r2;
 
-	if (**s == '%')
-	{
-		(*s)++;
-		e = create();
-		check_flags(s, e);
-		check_width(s, e);
-		check_prec(s, e);
-		check_len(s, e);
-		if (!check_spec(s, e) && !check_percent(s, e))
-		{
-			return (0);
-		}
-		push_back(list, e);
-	}
+	r1 = ft_printf("%c", 0);
+	r2 = printf("%c", 0);
+	printf("\n\nft_printf returned : %d\n", r1);
+	printf("printf returned : %d\n", r2);
 	return (0);
 }
