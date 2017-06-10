@@ -1,42 +1,63 @@
-NAME = printf
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cchampou <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/06/10 09:14:12 by cchampou          #+#    #+#              #
+#    Updated: 2017/06/10 10:09:11 by cchampou         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libftprintf.a
 
 CC = clang
 
-CFLAGS = -I includes -I libft
+CFLAGS = -Iincludes -Ilibft
+
+LIBFT = libft/libft.a
 
 CDIR = src
 
-CFILES	=	$(CDIR)/ft_printf.c				\
-			$(CDIR)/parsing/parse_param.c			\
-			$(CDIR)/parsing/parse_list_manager.c	\
-			$(CDIR)/parsing/spec_checker.c			\
-			$(CDIR)/parsing/flags_checker.c			\
-			$(CDIR)/parsing/len_checker.c			\
-			$(CDIR)/parsing/percent_checker.c		\
-			$(CDIR)/parsing/prec_checker.c			\
-			$(CDIR)/parsing/width_checker.c			\
-			$(CDIR)/treatment/treat.c			\
-			$(CDIR)/treatment/args.c			\
-			$(CDIR)/treatment/get_args_1.c			\
-			$(CDIR)/treatment/get_args_2.c			\
-			$(CDIR)/treatment/apply_flags.c			\
-			$(CDIR)/treatment/strutils.c			\
-			$(CDIR)/treatment/apply_width.c			\
-			main.c
+CFILES	=	ft_printf.c				\
+			parse_param.c			\
+			parse_list_manager.c	\
+			spec_checker.c			\
+			flags_checker.c			\
+			len_checker.c			\
+			percent_checker.c		\
+			prec_checker.c			\
+			width_checker.c			\
+			treat.c			\
+			args.c			\
+			get_args_1.c			\
+			get_args_2.c			\
+			apply_flags.c			\
+			strutils.c			\
+			apply_width.c
+
+OFILES = $(CFILES:.c=.o)
+
+$(OFILES):
 
 all: $(NAME)
 
 $(NAME):
-	make -C libft
-	$(CC) $(CFLAGS) -o $(NAME) $(CFILES) libft/libft.a
+	@make -C libft
+	@$(CC) $(CFLAGS) -c $(patsubst %,$(CDIR)/%,$(CFILES))
+	@cp $(LIBFT) $(NAME)
+	@ar rcs $(NAME) $(OFILES)
+
+%.o:%.c
 
 clean:
-	make -C libft clean
-	rm -rf printf.dSYM
+	@make -C libft clean
+	@rm -f $(OFILES)
 
 fclean: clean
-	make -C libft fclean
-	rm -f printf
+	@make -C libft fclean
+	@rm -f $(NAME)
 
 .PHONY: clean
 

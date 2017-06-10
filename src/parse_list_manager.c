@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/08 17:01:28 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/10 10:37:10 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	push_back(t_parse **list, t_parse *e)
 	}
 }
 
-void	print(t_parse **list)
+void	debug_print(t_parse **list)
 {
 	t_parse	*tmp;
 
@@ -68,6 +68,22 @@ void	print(t_parse **list)
 		printf("spec : %s\n", tmp->spec);
 		tmp = tmp->next;
 	}
+}
+
+int		print(t_parse **list)
+{
+	t_parse	*tmp;
+	int		out;
+
+	out = 0;
+	tmp = *list;
+	while (tmp)
+	{
+		out += ft_strlen(tmp->raw);
+		ft_putstr(tmp->raw);
+		tmp = tmp->next;
+	}
+	return (out);
 }
 
 void	freelist(t_parse **list)

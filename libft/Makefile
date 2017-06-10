@@ -6,7 +6,7 @@
 #    By: cchampou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 20:26:57 by cchampou          #+#    #+#              #
-#    Updated: 2017/06/09 14:16:38 by cchampou         ###   ########.fr        #
+#    Updated: 2017/06/10 09:52:34 by cchampou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,13 +98,13 @@ O_FILES = $(C_FILES:.c=.o)
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror -c $(C_FILES) -Ilibft.h
-	ar rc $(NAME) $(O_FILES)
+	@gcc -Wall -Wextra -Werror -c $(C_FILES) -Ilibft.h
+	@ar rc $(NAME) $(O_FILES)
 
 clean:
-	rm -rf $(O_FILES)
+	@rm -rf $(O_FILES)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
