@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 12:12:09 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/10 16:44:02 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,7 @@ int		print(t_parse **list)
 	while (tmp)
 	{
 		out += ft_strlen(tmp->raw);
-		if (tmp->out)
-			out += tmp->out;
+		out += tmp->out;
 		ft_putstr(tmp->raw);
 		tmp = tmp->next;
 	}

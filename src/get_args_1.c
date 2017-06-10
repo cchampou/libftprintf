@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 12:07:16 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/10 17:14:48 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	get_int(t_parse *e, va_list *ap)
 {
+	if (!ft_strcmp(e->spec, "D"))
+		e->len = ft_strdup("l");
 	if (e->len == NULL)
-		e->raw = ft_strdup(ft_itoa(va_arg(*ap, int)));
+		e->raw = ft_strdup(ft_itoa(va_arg(*ap, intmax_t)));
 	else if (!strcmp(e->len, "hh"))
-		e->raw = ft_strdup(ft_itoa((signed char)va_arg(*ap, int)));
+		e->raw = ft_strdup(ft_itoa((signed char)va_arg(*ap, intmax_t)));
 	else if (!strcmp(e->len, "h"))
-		e->raw = ft_strdup(ft_itoa((short int)va_arg(*ap, int)));
+		e->raw = ft_strdup(ft_itoa((short int)va_arg(*ap, intmax_t)));
 	else if (!strcmp(e->len, "l"))
-		e->raw = ft_strdup(ft_imtoa(((long int)va_arg(*ap, int))));
+		e->raw = ft_strdup(ft_imtoa(((long int)va_arg(*ap, long int))));
 	else if (!strcmp(e->len, "ll"))
 		e->raw = ft_strdup(ft_imtoa(((long long int)va_arg(*ap, intmax_t))));
 	else if (!strcmp(e->len, "j"))
@@ -32,6 +34,8 @@ void	get_int(t_parse *e, va_list *ap)
 
 void	get_uint(t_parse *e, va_list *ap)
 {
+	if (!ft_strcmp(e->spec, "U"))
+		e->len = ft_strdup("l");
 	if (e->len == NULL)
 		e->raw = ft_strdup(ft_uimtoa(va_arg(*ap, unsigned int)));
 	else if(!strcmp(e->len, "hh"))
@@ -58,7 +62,8 @@ void	get_char(t_parse *e, va_list *ap)
 		e->raw = ft_strndup(&tmp, 1);
 	else
 	{
-		e->raw = ft_strdup("");
+		e->raw = ft_strnew(1);
+		e->raw[0] = 0;
 		e->out = 1;
 	}
 }
@@ -69,7 +74,23 @@ void	get_string(t_parse *e, va_list *ap)
 
 	tmp = va_arg(*ap, char *);
 	if (tmp)
+	{
 		e->raw = ft_strdup(tmp);
+	}
+	else
+		e->raw = ft_strdup("(null)");
+}
+
+void	get_ustring(t_parse *e, va_list *ap)
+{
+	char	*tmp;
+
+	tmp = va_arg(*ap, char *);
+	if (tmp)
+	{
+		e->raw = ft_strdup(tmp);
+		e->raw = ft_strtoupper(e->raw);
+	}
 	else
 		e->raw = ft_strdup("(null)");
 }

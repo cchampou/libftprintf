@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 15:52:11 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 11:16:18 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/10 15:45:48 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	get_ouint(t_parse *e, va_list *ap)
 {
+	if (!ft_strcmp(e->spec, "O"))
+		e->len = ft_strdup("l");
 	if (e->len == NULL)
 		e->raw = ft_strdup(ft_ouimtoa((unsigned int)va_arg(*ap, uintmax_t)));
 	else if (!strcmp(e->len, "hh"))
-		e->raw = ft_strdup(ft_ouimtoa((signed char)va_arg(*ap, int)));
+		e->raw = ft_strdup(ft_ouimtoa((unsigned char)va_arg(*ap, int)));
 	else if (!strcmp(e->len, "h"))
-		e->raw = ft_strdup(ft_ouimtoa((short int)va_arg(*ap, int)));
+		e->raw = ft_strdup(ft_ouimtoa((unsigned short int)va_arg(*ap, int)));
 	else if (!strcmp(e->len, "l"))
-		e->raw = ft_strdup(ft_ouimtoa(((long int)va_arg(*ap, int))));
+		e->raw = ft_strdup(ft_ouimtoa(((long int)va_arg(*ap, intmax_t))));
 	else if (!strcmp(e->len, "ll"))
 		e->raw = ft_strdup(ft_ouimtoa(((long long int)va_arg(*ap, intmax_t))));
 	else if (!strcmp(e->len, "j"))
@@ -35,9 +37,9 @@ void	get_xuint(t_parse *e, va_list *ap)
 	if (e->len == NULL)
 		e->raw = ft_strdup(ft_xuimtoa((unsigned int)va_arg(*ap, intmax_t)));
 	else if (!strcmp(e->len, "hh"))
-		e->raw = ft_strdup(ft_xuimtoa((signed char)va_arg(*ap, int)));
+		e->raw = ft_strdup(ft_xuimtoa((unsigned char)va_arg(*ap, int)));
 	else if (!strcmp(e->len, "h"))
-		e->raw = ft_strdup(ft_xuimtoa((short int)va_arg(*ap, int)));
+		e->raw = ft_strdup(ft_xuimtoa((unsigned short int)va_arg(*ap, int)));
 	else if (!strcmp(e->len, "l"))
 		e->raw = ft_strdup(ft_xuimtoa(((long int)va_arg(*ap, int))));
 	else if (!strcmp(e->len, "ll"))
