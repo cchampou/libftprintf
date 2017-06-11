@@ -30,9 +30,8 @@ void	push_left(t_parse *e, char c, size_t nb)
 		nb++;
 	}
 	while (i < nb)
-	{
 		sout[i++] = c;
-	}
-	e->raw = ft_strcpy(e->raw, sout);
+	free(e->raw);
+	e->raw = ft_strdup(sout);
 	free(sout);
 }
