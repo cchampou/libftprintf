@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 17:14:48 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/11 14:47:00 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	get_char(t_parse *e, va_list *ap)
 	else
 	{
 		e->raw = ft_strnew(1);
-		e->raw[0] = 0;
-		e->out = 1;
+		e->raw[0] = '\0';
+		e->length = 1;
 	}
 }
 
@@ -74,9 +74,7 @@ void	get_string(t_parse *e, va_list *ap)
 
 	tmp = va_arg(*ap, char *);
 	if (tmp)
-	{
 		e->raw = ft_strdup(tmp);
-	}
 	else
 		e->raw = ft_strdup("(null)");
 }

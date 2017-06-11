@@ -6,7 +6,7 @@
 #    By: cchampou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 20:26:57 by cchampou          #+#    #+#              #
-#    Updated: 2017/06/10 09:52:34 by cchampou         ###   ########.fr        #
+#    Updated: 2017/06/11 15:10:52 by cchampou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ C_FILES = 	ft_strlen.c		\
 			ft_atoi.c		\
 			ft_putchar.c	\
 			ft_putstr.c		\
+			ft_putnstr.c	\
 			ft_memalloc.c	\
 			ft_memdel.c		\
 			ft_strnew.c		\

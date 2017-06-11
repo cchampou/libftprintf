@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 17:03:18 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:09:11 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct			s_parse
 	int			prec_value;
 	char			*len;
 	char			*spec;
-	int			out;
+	int			length;
 }				t_parse;
 
 typedef struct			s_get
@@ -78,7 +78,7 @@ void				apply_flags(t_parse *e);
 void				apply_prec(t_parse *e);
 void				print_elem(t_parse *e);
 void				apply_space(t_parse *e);
-char				*push_left(char *s, int offset, char c, size_t nb);
+void				push_left(t_parse *e, char c, size_t nb);
 void				apply_plus(t_parse *e);
 void				apply_hashtag(t_parse *e);
 

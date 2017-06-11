@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   apply_width.c                                      :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 17:12:18 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/11 16:24:19 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/11 16:07:24 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/11 16:07:26 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	apply_width(t_parse *e)
+void	ft_putnstr(char const *s, size_t n)
 {
-	int		len;
+	size_t	i;
 
-	len = (e->length) ? e->length : ft_strlen(e->raw);
-	if (len < e->width_value)
+	if (s)
 	{
-		if (e->zero)
-			push_left(e, '0', e->width_value - len);
-		else
-			push_left(e, ' ', e->width_value - len);
+		i = 0;
+		while (i < n)
+		{
+			ft_putchar(s[i++]);
+		}
 	}
 }

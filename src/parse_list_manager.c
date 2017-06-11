@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 16:44:02 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:24:33 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_parse	*create()
 	e->prec_value = 0;
 	e->len = NULL;
 	e->spec = NULL;
-	e->out = 0;
+	e->length = 0;
 	return (e);
 }
 
@@ -80,9 +80,16 @@ int		print(t_parse **list)
 	tmp = *list;
 	while (tmp)
 	{
-		out += ft_strlen(tmp->raw);
-		out += tmp->out;
-		ft_putstr(tmp->raw);
+		if (tmp->length)
+		{
+			out += tmp->length;
+			ft_putnstr(tmp->raw, tmp->length);
+		}
+		else
+		{
+			out += ft_strlen(tmp->raw);
+			ft_putstr(tmp->raw);
+		}
 		tmp = tmp->next;
 	}
 	return (out);

@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:27:34 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 17:05:53 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:24:25 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	apply_flags(t_parse *e)
 void	apply_space(t_parse *e)
 {
 	if (!ft_strchr(e->raw, '-'))
-		e->raw = push_left(e->raw, e->out, ' ', 1);
+		push_left(e, ' ', 1);
 }
 
 void	apply_plus(t_parse *e)
@@ -36,17 +36,17 @@ void	apply_plus(t_parse *e)
 		if (e->raw[0] == ' ')
 			e->raw[0] = '+';
 		else
-			e->raw = push_left(e->raw, e->out, '+', 1);
+			push_left(e, '+', 1);
 	}
 }
 
 void	apply_hashtag(t_parse *e)
 {
 	if (e->spec[0] == 'x')
-		e->raw = push_left(e->raw, e->out, 'x', 1);
+		push_left(e, 'x', 1);
 	if (e->spec[0] == 'X')
-		e->raw = push_left(e->raw, e->out, 'X', 1);
+		push_left(e, 'X', 1);
 	if (e->spec[0] == 'o' || e->spec[0] == 'O' || e->spec[0] == 'x'
 			|| e->spec[0] == 'X')
-		e->raw = push_left(e->raw, e->out, '0', 1);
+		push_left(e, '0', 1);
 }

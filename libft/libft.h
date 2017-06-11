@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:20:10 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/09 14:16:19 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:10:30 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
+void				ft_putnstr(char const *s, size_t n);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 char				*ft_strnew(size_t size);

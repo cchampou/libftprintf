@@ -6,31 +6,33 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:58:40 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/10 17:04:38 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/11 16:18:53 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*push_left(char *s, int offset, char c, size_t nb)
+void	push_left(t_parse *e, char c, size_t nb)
 {
-	size_t	len;
 	char	*sout;
 	size_t	i;
 
 	i = 0;
-	len = ft_strlen(s + offset);
-	len += nb;
-	sout = (char*)malloc(sizeof(char) * (len + 1));
-	ft_strncpy(sout + nb, s, len);
-	if (c != ' ' && (s[i] == '-' || s[i] == '+'))
+	if (e->length == 0)
+		e->length = ft_strlen(e->raw);
+	e->length += nb;
+	sout = (char*)malloc(sizeof(char) * (e->length + 1));
+	ft_strncpy(sout + nb, e->raw, e->length);
+	if (c != ' ' && (e->raw[i] == '-' || e->raw[i] == '+'))
 	{
-		sout[i] = s[i];
+		sout[i] = e->raw[i];
 		i++;
 		nb++;
 	}
 	while (i < nb)
+	{
 		sout[i++] = c;
-	free(s);
-	return (sout);
+	}
+	e->raw = ft_strcpy(e->raw, sout);
+	free(sout);
 }
