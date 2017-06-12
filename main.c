@@ -6,14 +6,15 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/10 10:49:51 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/12 14:19:02 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/12 18:44:38 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	main(void)
 {
-	ft_printf("{%-10d}", 42);
-	return (0);
+	printf("%#05x\n\n", 42);
+	ft_printf("%#05x", 42);
 }

@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/12 14:05:44 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/12 16:32:37 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int				check_spec(char **s, t_parse *e);
 int				check_percent(char **s, t_parse *e);
 t_parse				*create();
 void				push_back(t_parse **list, t_parse *e);
-void				debug_print(t_parse **list);
+int					debug_print(t_parse **list);
 int					print(t_parse **list);
 void				freelist(t_parse **list);
 void				treat_list(t_parse **list, va_list *ap);

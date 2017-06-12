@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 11:31:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/09 17:15:44 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/12 17:48:17 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,13 @@ void	treat_elem(t_parse *e, va_list *ap)
 	if (e->spec)
 	{
 		get_arg(e, ap);
-		apply_flags(e);
-		apply_width(e);
-		apply_prec(e);
-		print_elem(e);
 	}
+	apply_flags(e);
+	apply_width(e);
+	apply_prec(e);
 }
 
 void	apply_prec(t_parse *e)
-{
-	(void)e;
-}
-
-void	print_elem(t_parse *e)
 {
 	(void)e;
 }
