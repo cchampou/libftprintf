@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 17:12:18 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/11 16:24:19 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/12 14:17:00 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,14 @@ void	apply_width(t_parse *e)
 	len = (e->length) ? e->length : ft_strlen(e->raw);
 	if (len < e->width_value)
 	{
-		if (e->zero)
-			push_left(e, '0', e->width_value - len);
+		if (e->minus)
+			push_right(e, ' ', e->width_value - len);
 		else
-			push_left(e, ' ', e->width_value - len);
+		{
+			if (e->zero)
+				push_left(e, '0', e->width_value - len);
+			else
+				push_left(e, ' ', e->width_value - len);
+		}
 	}
 }

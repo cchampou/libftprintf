@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   main2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/06 02:25:15 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/12 12:33:32 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/12 11:32:19 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/12 11:38:30 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
+#include <stdlib.h>
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+int	main(void)
 {
-	size_t	i;
+	char	*test;
+	char	*out;
 
-	i = 0;
-	while (src[i] && i < len)
-	{
-		dst[i] = (unsigned char)src[i];
-		i++;
-	}
-	while (i < len)
-		dst[i++] = (unsigned char)'\0';
-	return (dst);
+	test = ft_strdup("Hello");
+	out = ft_strdup(test);
+	free(test);
+	free(out);
+	return (0);
 }

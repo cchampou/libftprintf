@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:33:38 by cchampou          #+#    #+#             */
-/*   Updated: 2016/11/22 17:28:24 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/12 11:21:52 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (s)
 	{
-		i++;
+		while (s[i] != '\0')
+			i++;
 	}
 	return (i);
 }
