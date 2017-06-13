@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 17:12:18 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 14:01:05 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 16:27:08 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	apply_width(t_parse *e)
 			push_right(e, ' ', e->width_value - len);
 		else
 		{
-			if (e->zero)
+			if (e->zero && !e->prec)
 				push_left(e, '0', e->width_value - len);
 			else
 				push_left(e, ' ', e->width_value - len);

@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 11:01:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 16:21:48 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 16:31:47 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	apply_prec(t_parse *e)
 {
 	char	*tmp;
 
+	e->prec_value += ((ft_atoi(e->raw) < 0) ? 1 : 0);
 	if (e->prec)
 	{
 		D(printf("= apply_prec.c = Applying prec on e->raw : %s ...\n", e->raw));
@@ -33,7 +34,8 @@ void	apply_prec(t_parse *e)
 			if (e->prec_value > ft_strlen(e->raw) - e->plus - e->space
 					&& (e->spec[0] = 'o'
 						|| e->spec[0] == 'O' || e->spec[0] == 'd'))
-				push_left(e, '0', e->prec_value - ft_strlen(e->raw) + e->plus + e->space);
+				push_left(e, '0', e->prec_value - ft_strlen(e->raw) + e->plus
+						+ e->space);
 			else
 				reduce_value(e);
 		}
