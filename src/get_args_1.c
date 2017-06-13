@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/12 13:51:16 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 18:09:12 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	get_uint(t_parse *e, va_list *ap)
 		e->len = ft_strdup("l");
 	if (e->len == NULL)
 		e->raw = ft_uimtoa(va_arg(*ap, unsigned int));
-	else if(!strcmp(e->len, "hh"))
+	else if (!strcmp(e->len, "hh"))
 		e->raw = ft_uimtoa((unsigned char)va_arg(*ap, unsigned int));
 	else if (!strcmp(e->len, "h"))
 		e->raw = ft_uimtoa((unsigned short int)va_arg(*ap, unsigned int));
@@ -90,12 +90,4 @@ void	get_ustring(t_parse *e, va_list *ap)
 	}
 	else
 		e->raw = ft_strdup("(null)");
-}
-
-void	get_pointer(t_parse *e, va_list *ap)
-{
-	e->spec = ft_strdup("x");
-	e->len = ft_strdup("ll");
-	e->hashtag = 1;
-	get_xuint(e, ap);
 }

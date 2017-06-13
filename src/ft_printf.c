@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 11:56:55 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 12:23:32 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 18:05:02 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		copy_raw(char **s, t_parse **list)
 {
 	t_parse	*e;
-	int	i;
+	int		i;
 
 	if (**s != '\0' && **s != '%')
 	{
@@ -43,7 +43,7 @@ int		ft_parse(char *s, t_parse **list)
 	return (0);
 }
 
-int	ft_printf(const char *s, ...)
+int		ft_printf(const char *s, ...)
 {
 	t_parse	*list;
 	va_list	ap;

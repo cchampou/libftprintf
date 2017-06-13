@@ -6,14 +6,14 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 14:12:20 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 17:54:49 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_parse	*create()
-{	
+t_parse	*create(void)
+{
 	t_parse	*e;
 
 	e = (t_parse*)malloc(sizeof(t_parse));

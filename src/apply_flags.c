@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:27:34 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 10:06:35 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 17:04:41 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	apply_plus(t_parse *e)
 void	apply_hashtag(t_parse *e)
 {
 	D(printf("= apply_flags.c = Applying hashtag flag...\n"));
-	if (ft_strcmp(e->raw, "0") && ft_strcmp(e->raw, "") && e->spec[0] == 'x')
+	if (ft_strcmp(e->raw, "") && e->spec[0] == 'x')
 		push_left(e, 'x', 1);
-	if (ft_strcmp(e->raw, "0") && ft_strcmp(e->raw, "") && e->spec[0] == 'X')
+	if (ft_strcmp(e->raw, "") && e->spec[0] == 'X')
 		push_left(e, 'X', 1);
 	if (ft_strcmp(e->raw, "0") && ft_strcmp(e->raw, "") && (e->spec[0] == 'o'
 				|| e->spec[0] == 'O'

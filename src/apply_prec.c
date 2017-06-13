@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 11:01:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 16:31:47 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 18:06:40 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	apply_prec(t_parse *e)
 	e->prec_value += ((ft_atoi(e->raw) < 0) ? 1 : 0);
 	if (e->prec)
 	{
-		D(printf("= apply_prec.c = Applying prec on e->raw : %s ...\n", e->raw));
+		D(printf("= apply_prec.c = Applying prec ...\n"));
 		if (e->spec && (e->spec[0] == 's' || e->spec[0] == 'S'
 				|| e->spec[0] == 'c'))
 		{
@@ -53,9 +53,8 @@ void	reduce_value(t_parse *e)
 	i = 0;
 	if (e->hashtag && (e->spec[0] == 'o' || e->spec[0] == 'O'))
 	{
-		
 	}
-	else 
+	else
 	{
 		D(printf("= apply_prec.c = Reducing value...\n"));
 		while (e->raw[i] != 0 && ft_strlen(e->raw) - i > e->prec_value

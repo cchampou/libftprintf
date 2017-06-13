@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 23:29:17 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/12 18:00:28 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 17:54:05 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_width(char **s, t_parse *e)
 {
 	size_t	i;
-	char 	*value;
+	char	*value;
 
 	value = NULL;
 	i = 0;

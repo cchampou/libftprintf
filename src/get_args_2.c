@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 15:52:11 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 09:56:26 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 18:06:49 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,16 @@ void	get_xuint(t_parse *e, va_list *ap)
 		e->raw = ft_xuimtoa((va_arg(*ap, size_t)));
 	if (e->spec[0] == 'X')
 		e->raw = ft_strtoupper(e->raw);
+	if (!ft_strcmp(e->raw, "0"))
+		e->hashtag = 0;
+}
+
+void	get_pointer(t_parse *e, va_list *ap)
+{
+	e->spec = ft_strdup("x");
+	e->len = ft_strdup("ll");
+	get_xuint(e, ap);
+	e->hashtag = 1;
+	if (!ft_strcmp(e->raw, "0"))
+		e->hashtag = 1;
 }
