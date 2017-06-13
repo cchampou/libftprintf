@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:46 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/12 17:59:58 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 09:32:32 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int		parse_param(char **s, t_parse **list)
 		(*s)++;
 		e = create();
 		check_flags(s, e);
-		check_prec(s, e);
 		check_len(s, e);
 		check_width(s, e);
+		check_prec(s, e);
 		if (!check_spec(s, e) && !check_percent(s, e))
 		{
 			return (0);

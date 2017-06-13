@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:33 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/12 16:34:14 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 14:12:20 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,13 @@ int		debug_print(t_parse **list)
 		printf("- : %d\n", tmp->minus);
 		printf("0 : %d\n", tmp->zero);
 		printf("space : %d\n", tmp->space);
-		printf("width : %d\n", tmp->width_value);
-		printf("prec : %d\n", tmp->prec_value);
+		printf("width : %d\n", tmp->width);
+		printf("width_value : %d\n", tmp->width_value);
+		printf("prec : %d\n", tmp->prec);
+		printf("prec_value : %d\n", tmp->prec_value);
 		printf("len : %s\n", tmp->len);
 		printf("spec : %s\n", tmp->spec);
+		printf("_____________\n\n");
 		tmp = tmp->next;
 	}
 	return (out);
@@ -79,6 +82,7 @@ int		print(t_parse **list)
 	t_parse	*tmp;
 	int		out;
 
+	D(printf("= parse_list_manager.c = Starting result printing...\n"));
 	out = 0;
 	tmp = *list;
 	while (tmp)
@@ -95,14 +99,18 @@ int		print(t_parse **list)
 		}
 		tmp = tmp->next;
 	}
+	D(printf("= parse_list_manager.c = Result has been printed !\n"));
 	return (out);
 }
 
 void	freelist(t_parse **list)
 {
 	t_parse	*tmp;
+
+	D(printf("= parse_list_manager.c = Starting list freeing...\n"));
 	while (*list)
 	{
+		D(printf("= parse_list_manager.c = Starting element freeing...\n"));
 		tmp = (*list)->next;
 		if ((*list)->raw)
 			free((*list)->raw);
@@ -112,5 +120,7 @@ void	freelist(t_parse **list)
 			free((*list)->spec);
 		free(*list);
 		*list = tmp;
+		D(printf("= parse_list_manager.c = Element has been free !\n"));
 	}
+	D(printf("= parse_list_manager.c = List has been free !\n"));
 }

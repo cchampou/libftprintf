@@ -6,12 +6,16 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/12 16:32:37 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 14:29:15 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+# define DEBUG	0
+
+# define D(x)	if (DEBUG) { x; }
 
 # include <stdarg.h>
 # include <stdlib.h>
