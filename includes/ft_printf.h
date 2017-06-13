@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 14:29:15 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 16:02:35 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ void				push_left(t_parse *e, char c, size_t nb);
 void				push_right(t_parse *e, char c, size_t nb);
 void				apply_plus(t_parse *e);
 void				apply_hashtag(t_parse *e);
+void				reduce_value(t_parse *e);
 
 #endif
