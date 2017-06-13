@@ -6,14 +6,14 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 16:02:35 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 16:17:36 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define DEBUG	0
+# define DEBUG 0
 
 # define D(x)	if (DEBUG) { x; }
 

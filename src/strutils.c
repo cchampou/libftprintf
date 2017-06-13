@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:58:40 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 14:13:29 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/13 16:22:35 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ void	push_left(t_parse *e, char c, size_t nb)
 		e->length = ft_strlen(e->raw);
 	e->length += nb;
 	sout = ft_memalloc(e->length + 1);
-	if (e->raw[i] == '-' || e->raw[i] == '+')
+	if ((e->raw[i] == '-' || e->raw[i] == '+' || e->raw[i] == ' ') && c == '0')
 	{
 		sout[i] = e->raw[i];
 		i++;
 		nb++;
 	}
-	
 	if (c != ' ' && e->raw[i] == '0' && (e->raw[i + 1] == 'x' || e->raw[i + 1] == 'X'))
 	{
 		ft_strncpy(sout, e->raw, 2);
