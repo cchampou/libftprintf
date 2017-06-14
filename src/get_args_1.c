@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 18:09:12 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/14 14:46:00 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,30 @@ void	get_string(t_parse *e, va_list *ap)
 		e->raw = ft_strdup("(null)");
 }
 
-void	get_ustring(t_parse *e, va_list *ap)
+void	get_wstring(t_parse *e, va_list *ap)
 {
+	wchar_t	*wtmp;
 	char	*tmp;
+	char	*buff;
+	int		i;
 
-	tmp = va_arg(*ap, char *);
-	if (tmp)
+	D(ft_putstr("= get_args_1.c = Starting wstring retrievment...\n"));
+	i = 0;
+	wtmp = (wchar_t*)va_arg(*ap, unsigned int *);
+	D(ft_putstr("= get_args_1.c = Arg has been pulled.\n"));
+	tmp = ft_memalloc(4);
+	while (wtmp[i])
 	{
-		e->raw = ft_strdup(tmp);
-		e->raw = ft_strtoupper(e->raw);
+		
+		wchar_convert(tmp, wtmp[i]);
+		if (e->raw)
+		{
+			buff = ft_strjoin(e->raw, tmp);
+			e->raw = buff;
+		}
+		else
+			e->raw = ft_strdup(tmp);
+		i++;
 	}
-	else
-		e->raw = ft_strdup("(null)");
+	D(ft_putstr("= get_args_1.c = Wstring has been retrived\n"));
 }

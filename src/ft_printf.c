@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 11:56:55 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 18:05:02 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/14 15:26:20 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		ft_printf(const char *s, ...)
 	va_start(ap, s);
 	list = NULL;
 	if (ft_parse((char*)s, &list) == -1)
-		return (-1);
+		return (0);
 	D(debug_print(&list));
 	treat_list(&list, &ap);
 	out = print(&list);

@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 18:33:29 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/14 15:49:16 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <string.h>
 # include "libft.h"
 # include <limits.h>
+# include <wchar.h>
 
 typedef struct			s_parse
 {
@@ -74,8 +75,9 @@ void				get_uint(t_parse *e, va_list *ap);
 void				get_ouint(t_parse *e, va_list *ap);
 void				get_xuint(t_parse *e, va_list *ap);
 void				get_char(t_parse *e, va_list *ap);
+void				get_wchar(t_parse *e, va_list *ap);
 void				get_string(t_parse *e, va_list *ap);
-void				get_ustring(t_parse *e, va_list *ap);
+void				get_wstring(t_parse *e, va_list *ap);
 void				get_pointer(t_parse *e, va_list *ap);
 void				apply_width(t_parse *e);
 void				apply_flags(t_parse *e);
@@ -87,5 +89,6 @@ void				push_right(t_parse *e, char c, size_t nb);
 void				apply_plus(t_parse *e);
 void				apply_hashtag(t_parse *e);
 void				reduce_value(t_parse *e);
+void				wchar_convert(char *e, wchar_t c);
 
 #endif

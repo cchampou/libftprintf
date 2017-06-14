@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:46 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 09:32:32 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/14 15:25:26 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int		parse_param(char **s, t_parse **list)
 		check_len(s, e);
 		check_width(s, e);
 		check_prec(s, e);
+		if (**s == '\0')
+		{
+			D(printf("EOF detected, exiting"));
+			return (-1);
+		}
 		if (!check_spec(s, e) && !check_percent(s, e))
 		{
 			return (0);

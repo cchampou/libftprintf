@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 15:52:11 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 18:06:49 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/14 15:48:57 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,20 @@ void	get_pointer(t_parse *e, va_list *ap)
 	e->hashtag = 1;
 	if (!ft_strcmp(e->raw, "0"))
 		e->hashtag = 1;
+}
+
+void	get_wchar(t_parse *e, va_list *ap)
+{
+	wchar_t	tmp;
+
+	D(printf("= get_args_2.c = Getting wchar...\n"));
+	tmp = (wchar_t)va_arg(*ap, int);
+	e->raw = ft_memalloc(4);
+	wchar_convert(e->raw, tmp);
+	if (tmp == 0)
+	{
+		e->length = 1;
+		e->raw = ft_memalloc(2);
+	}
+	D(printf("= get_args_2.c = Wchar ok !\n"));
 }

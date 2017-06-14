@@ -6,7 +6,7 @@
 #    By: cchampou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/10 09:14:12 by cchampou          #+#    #+#              #
-#    Updated: 2017/06/13 11:06:10 by cchampou         ###   ########.fr        #
+#    Updated: 2017/06/14 11:02:16 by cchampou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ CFILES	=	ft_printf.c				\
 			apply_flags.c			\
 			strutils.c			\
 			apply_width.c		\
-			apply_prec.c
+			apply_prec.c			\
+			wchar.c
 
 OFILES = $(CFILES:.c=.o)
 

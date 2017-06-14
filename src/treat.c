@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 11:31:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 14:01:22 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/14 15:39:02 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	treat_elem(t_parse *e, va_list *ap)
 		get_arg(e, ap);
 	}
 	apply_flags(e);
-	if (e->prec)
+	if (e->prec && e->spec && e->spec[0] != 'C' && e->spec[0] != 'S')
 		apply_prec(e);
 	if (e->width)
 		apply_width(e);

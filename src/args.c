@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:56:47 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 18:02:42 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/14 10:22:06 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ const t_get	g_get[] =
 	{'x', &get_xuint},
 	{'X', &get_xuint},
 	{'c', &get_char},
-	{'C', &get_char},
+	{'C', &get_wchar},
 	{'s', &get_string},
-	{'S', &get_ustring},
+	{'S', &get_wstring},
 	{'p', &get_pointer},
 	{0, NULL}
 };
