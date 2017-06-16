@@ -16,6 +16,7 @@
 
 int	main(void)
 {
-	ft_putnbr(ft_printf("%C", 0));
-	ft_putnbr(printf("%C", 0));
+	setlocale(LC_ALL, "");
+	ft_putnbr(ft_printf("%C", L'😎'));
+	ft_putnbr(printf("%C", L'😎'));
 }
