@@ -56,14 +56,19 @@ void	get_char(t_parse *e, va_list *ap)
 {
 	char	tmp;
 
-	tmp = (char)va_arg(*ap, int);
-	if (tmp)
-		e->raw = ft_strndup(&tmp, 1);
+	if (e->len && !ft_strcmp(e->len, "l"))
+		get_wchar(e, ap);
 	else
 	{
-		e->raw = ft_strnew(1);
-		e->raw[0] = '\0';
-		e->length = 1;
+		tmp = (char)va_arg(*ap, int);
+		if (tmp)
+			e->raw = ft_strndup(&tmp, 1);
+		else
+		{
+			e->raw = ft_strnew(1);
+			e->raw[0] = '\0';
+			e->length = 1;
+		}
 	}
 }
 
@@ -71,11 +76,16 @@ void	get_string(t_parse *e, va_list *ap)
 {
 	char	*tmp;
 
-	tmp = va_arg(*ap, char *);
-	if (tmp)
-		e->raw = ft_strdup(tmp);
+	if (e->len && !ft_strcmp(e->len, "l"))
+		get_wstring(e, ap);
 	else
-		e->raw = ft_strdup("(null)");
+	{
+		tmp = va_arg(*ap, char *);
+		if (tmp)
+			e->raw = ft_strdup(tmp);
+		else
+			e->raw = ft_strdup("(null)");
+	}
 }
 
 void	get_wstring(t_parse *e, va_list *ap)
@@ -90,10 +100,10 @@ void	get_wstring(t_parse *e, va_list *ap)
 	wtmp = (wchar_t*)va_arg(*ap, unsigned int *);
 	D(ft_putstr("= get_args_1.c = Arg has been pulled.\n"));
 	tmp = ft_memalloc(4);
-	while (wtmp[i])
-	{
-		
+	while (wtmp && wtmp[i])
+	{	
 		wchar_convert(tmp, wtmp[i]);
+		D(printf("wchar : %s\n", tmp));
 		if (e->raw)
 		{
 			buff = ft_strjoin(e->raw, tmp);
@@ -103,5 +113,7 @@ void	get_wstring(t_parse *e, va_list *ap)
 			e->raw = ft_strdup(tmp);
 		i++;
 	}
+	if (!wtmp)
+		e->raw = ft_strdup("(null)");
 	D(ft_putstr("= get_args_1.c = Wstring has been retrived\n"));
 }

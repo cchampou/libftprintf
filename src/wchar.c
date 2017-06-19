@@ -12,10 +12,14 @@
 
 #include "ft_printf.h"
 
-void	wchar_convert(char	*s, wchar_t c)
+void	wchar_convert(char *s, wchar_t c)
 {
+	D(printf("%x\n", c));
 	if (c <= 0x7F)
+	{
 		s[0] = c;
+		s[1] = 0;
+	}
 	else if (c <= 0x7FF)
 	{
 		s[0] = ((c >> 6) + 0xC0);
