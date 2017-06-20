@@ -16,7 +16,7 @@ void	apply_flags(t_parse *e)
 {
 	if (e->space)
 		apply_space(e);
-	if (e->plus)
+	if (e->plus && ft_strcmp(e->spec, "C") && ft_strcmp(e->spec, "s"))
 		apply_plus(e);
 	if (e->hashtag)
 		apply_hashtag(e);

@@ -17,6 +17,6 @@
 int	main(void)
 {
 	setlocale(LC_ALL, "");
-	printf("%S", NULL);
-	ft_printf("%S", NULL);
+	printf("{%030d}\n", 10000);
+	ft_printf("{%030d}\n", 10000);
 }
