@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:27:34 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/21 15:26:06 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/21 18:20:38 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	apply_flags(t_parse *e)
 {
 	if (e->space && e->spec && e->spec[0] != 's' && e->spec[0] != 'C' 
-			&& e->spec[0] != 'S')
+			&& e->spec[0] != 'S' && e->spec[0] != 'x' && e->spec[0] != 'o'
+			&& e->spec[0] != 'X' )
 		apply_space(e);
 	if (e->plus && ft_strcmp(e->spec, "C") && ft_strcmp(e->spec, "s"))
 		apply_plus(e);

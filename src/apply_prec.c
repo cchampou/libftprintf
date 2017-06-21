@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 11:01:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/21 16:18:10 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/21 18:28:11 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,4 @@ void	reduce_value(t_parse *e)
 		D(printf("= apply_prec.c = Value has been reduced !\n"));
 	}
 }
+
