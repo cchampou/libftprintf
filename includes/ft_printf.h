@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 15:32:57 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/14 15:49:16 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/21 15:38:55 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void				apply_plus(t_parse *e);
 void				apply_hashtag(t_parse *e);
 void				reduce_value(t_parse *e);
 void				wchar_convert(char *e, wchar_t c);
+int					prec_eligible(char *spec);
 
 #endif

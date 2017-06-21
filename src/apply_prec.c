@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 11:01:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/14 11:41:20 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/21 16:18:10 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ void	apply_prec(t_parse *e)
 	if (e->prec)
 	{
 		D(printf("= apply_prec.c = Applying prec ...\n"));
-		if (e->spec && (e->spec[0] == 's' || e->spec[0] == 'S'
-				|| e->spec[0] == 'c'))
+		if (e->spec && (e->spec[0] == 's' || e->spec[0] == 'c'))
 		{
 			tmp = ft_strndup(e->raw, e->prec_value);
 			free(e->raw);
 			e->raw = tmp;
 		}
-		else if (e->spec && (e->spec[0] == 'x' || e->spec[0] == 'X'
-					|| e->spec[0] == 'o' || e->spec[0] == 'O'
-					|| e->spec[0] == 'd'))
+		else if (prec_eligible(e->spec))
 		{
 			if (e->prec_value > ft_strlen(e->raw) - e->plus - e->space
 					&& (e->spec[0] = 'o'
@@ -43,6 +40,15 @@ void	apply_prec(t_parse *e)
 			push_left(e, '0', e->prec_value - ft_strlen(e->raw) + e->plus);
 		D(printf("= apply_prec.c = Applied prec on e->raw : %s !\n", e->raw));
 	}
+}
+
+int		prec_eligible(char *spec)
+{
+	if (spec && (spec[0] == 'x' || spec[0] == 'X' || spec[0] == 'o'
+				|| spec[0] == 'O' || spec[0] == 'd' || spec[0] == 'i'
+				|| spec[0] == 'u'))
+		return (1);
+	return (0);
 }
 
 void	reduce_value(t_parse *e)

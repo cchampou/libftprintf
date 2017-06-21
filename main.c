@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/10 10:49:51 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/14 15:43:08 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/21 16:13:34 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 int	main(void)
 {
-	setlocale(LC_ALL, "");
-	printf("{%030d}\n", 10000);
-	ft_printf("{%030d}\n", 10000);
+	ft_printf("%.20Stestt\n", L"我是");
+	printf("%.20Sttest\n", L"我是");
 }
