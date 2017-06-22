@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:58:40 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/21 17:21:12 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/22 16:47:32 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	push_left(t_parse *e, char c, size_t nb)
 	char	*sout;
 	size_t	i;
 
-	D(printf("= strutils.c = Pushing %zu chars(%c) from the left of %s...\n", nb,
-				c, e->raw));
 	i = 0;
 	if (e->length == 0)
 		e->length = ft_strlen(e->raw);
@@ -30,7 +28,8 @@ void	push_left(t_parse *e, char c, size_t nb)
 		i++;
 		nb++;
 	}
-	if (c != ' ' && e->raw[i] == '0' && (e->raw[i + 1] == 'x' || e->raw[i + 1] == 'X'))
+	if (c != ' ' && e->raw[i] == '0'
+			&& (e->raw[i + 1] == 'x' || e->raw[i + 1] == 'X'))
 	{
 		ft_strncpy(sout, e->raw, 2);
 		i += 2;
@@ -40,7 +39,6 @@ void	push_left(t_parse *e, char c, size_t nb)
 	while (i < nb)
 		sout[i++] = c;
 	e->raw = sout;
-	D(printf("= strutils.c = Finished pushing %zu chars(%c) from the left of %s !\n", nb, c, e->raw));
 }
 
 void	push_right(t_parse *e, char c, size_t nb)

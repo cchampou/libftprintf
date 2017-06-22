@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 21:40:27 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 10:09:38 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/22 18:28:55 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static char	convert_hexa(uintmax_t c)
 	if (c == 15)
 		return ('f');
 	return (0);
-
 }
 
 char		*ft_xuimtoa(uintmax_t n)

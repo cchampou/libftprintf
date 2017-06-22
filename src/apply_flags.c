@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:27:34 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/21 18:20:38 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/22 16:49:29 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	apply_flags(t_parse *e)
 {
-	if (e->space && e->spec && e->spec[0] != 's' && e->spec[0] != 'C' 
+	if (e->space && e->spec && e->spec[0] != 's' && e->spec[0] != 'C'
 			&& e->spec[0] != 'S' && e->spec[0] != 'x' && e->spec[0] != 'o'
-			&& e->spec[0] != 'X' )
+			&& e->spec[0] != 'X')
 		apply_space(e);
 	if (e->plus && ft_strcmp(e->spec, "C") && ft_strcmp(e->spec, "s"))
 		apply_plus(e);
@@ -29,7 +29,6 @@ void	apply_space(t_parse *e)
 	if (!ft_strchr(e->raw, '-') && e->spec != NULL && e->spec[0] != 'u'
 			&& e->spec[0] != 'c')
 	{
-		D(printf("= apply_flags.c = Applying space flag...\n"));
 		push_left(e, ' ', 1);
 	}
 }
@@ -49,7 +48,6 @@ void	apply_plus(t_parse *e)
 
 void	apply_hashtag(t_parse *e)
 {
-	D(printf("= apply_flags.c = Applying hashtag flag...\n"));
 	if (ft_strcmp(e->raw, "") && e->spec[0] == 'x')
 		push_left(e, 'x', 1);
 	if (ft_strcmp(e->raw, "") && e->spec[0] == 'X')

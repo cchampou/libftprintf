@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 23:28:46 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 18:07:41 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/22 18:15:06 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	check_prec(char **s, t_parse *e)
 
 	if (**s == '.')
 	{
-		D(printf("= prec_checker.c = Precision reached, parsing...\n"));
 		i = 0;
 		++(*s);
 		while (is_width_or_prec((*s)[i]))

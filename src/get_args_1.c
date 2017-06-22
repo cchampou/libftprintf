@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/14 14:46:00 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/06/22 18:14:30 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,12 @@ void	get_wstring(t_parse *e, va_list *ap)
 	char	*buff;
 	int		i;
 
-	D(ft_putstr("= get_args_1.c = Starting wstring retrievment...\n"));
 	i = 0;
 	wtmp = (wchar_t*)va_arg(*ap, unsigned int *);
-	D(ft_putstr("= get_args_1.c = Arg has been pulled.\n"));
 	tmp = ft_memalloc(4);
 	while (wtmp && wtmp[i])
-	{	
+	{
 		wchar_convert(tmp, wtmp[i]);
-		D(printf("wchar : %s\n", tmp));
 		if (e->raw)
 		{
 			buff = ft_strjoin(e->raw, tmp);
@@ -115,5 +112,4 @@ void	get_wstring(t_parse *e, va_list *ap)
 	}
 	if (!wtmp)
 		e->raw = ft_strdup("(null)");
-	D(ft_putstr("= get_args_1.c = Wstring has been retrived\n"));
 }
