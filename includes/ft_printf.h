@@ -19,6 +19,7 @@
 # include "libft.h"
 # include <limits.h>
 # include <wchar.h>
+# include <stdio.h>
 
 typedef struct			s_parse
 {

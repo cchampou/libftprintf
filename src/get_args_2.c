@@ -56,6 +56,7 @@ void	get_xuint(t_parse *e, va_list *ap)
 
 void	get_pointer(t_parse *e, va_list *ap)
 {
+	free(e->spec);
 	e->spec = ft_strdup("x");
 	e->len = ft_strdup("ll");
 	get_xuint(e, ap);

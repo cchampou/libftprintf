@@ -38,6 +38,7 @@ void	push_left(t_parse *e, char c, size_t nb)
 	ft_strncpy(sout + nb, e->raw + i, e->length);
 	while (i < nb)
 		sout[i++] = c;
+	free(e->raw);
 	e->raw = sout;
 }
 

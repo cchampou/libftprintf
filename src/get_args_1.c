@@ -104,6 +104,7 @@ void	get_wstring(t_parse *e, va_list *ap)
 		if (e->raw)
 		{
 			buff = ft_strjoin(e->raw, tmp);
+			free(e->raw);
 			e->raw = buff;
 		}
 		else
@@ -112,4 +113,5 @@ void	get_wstring(t_parse *e, va_list *ap)
 	}
 	if (!wtmp)
 		e->raw = ft_strdup("(null)");
+	free(tmp);
 }
