@@ -86,5 +86,6 @@ void					apply_hashtag(t_parse *e);
 void					reduce_value(t_parse *e);
 void					wchar_convert(char *e, wchar_t c);
 int						prec_eligible(char *spec);
+void					refresh_length(t_parse *e);
 
 #endif
