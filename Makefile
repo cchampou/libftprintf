@@ -41,8 +41,6 @@ CFILES	=	ft_printf.c				\
 
 OFILES = $(CFILES:.c=.o)
 
-$(OFILES):
-
 all: $(NAME)
 
 $(NAME):
