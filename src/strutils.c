@@ -18,9 +18,9 @@ void	push_left(t_parse *e, char c, size_t nb)
 	size_t	i;
 
 	i = 0;
-	refresh_length(e);
-	e->length += nb;
-	sout = ft_memalloc(e->length + 2);
+	refresh_length(e, nb);
+	if (!(sout = ft_memalloc(e->length + 2)))
+		exit(-1);
 	if ((e->raw[i] == '-' || e->raw[i] == '+' || e->raw[i] == ' ') && c == '0')
 	{
 		sout[i] = e->raw[i];
@@ -41,10 +41,11 @@ void	push_left(t_parse *e, char c, size_t nb)
 	e->raw = sout;
 }
 
-void	refresh_length(t_parse *e)
+void	refresh_length(t_parse *e, size_t nb)
 {
 	if (e->length == 0)
 		e->length = ft_strlen(e->raw);
+	e->length += nb;
 }
 
 void	push_right(t_parse *e, char c, size_t nb)
@@ -56,7 +57,8 @@ void	push_right(t_parse *e, char c, size_t nb)
 	if (e->length == 0)
 		e->length = strlen(e->raw);
 	e->length += nb;
-	sout = (char*)malloc(sizeof(char) * (e->length + 1));
+	if (!(sout = (char*)malloc(sizeof(char) * (e->length + 1))))
+		exit(-1);
 	if (c != ' ' && (e->raw[i] == '-' || e->raw[i] == '+'))
 	{
 		sout[i] = e->raw[i];

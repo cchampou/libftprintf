@@ -70,11 +70,13 @@ void	get_wchar(t_parse *e, va_list *ap)
 	wchar_t	tmp;
 
 	tmp = (wchar_t)va_arg(*ap, int);
-	e->raw = ft_memalloc(4);
+	if (!(e->raw = ft_memalloc(4)))
+		exit(-1);
 	wchar_convert(e->raw, tmp);
 	if (tmp == 0)
 	{
 		e->length = 1;
-		e->raw = ft_memalloc(2);
+		if (!(e->raw = ft_memalloc(2)))
+			exit(-1);
 	}
 }

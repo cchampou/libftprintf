@@ -97,7 +97,8 @@ void	get_wstring(t_parse *e, va_list *ap)
 
 	i = 0;
 	wtmp = (wchar_t*)va_arg(*ap, unsigned int *);
-	tmp = ft_memalloc(4);
+	if (!(tmp = ft_memalloc(4)))
+		exit(-1);
 	while (wtmp && wtmp[i])
 	{
 		wchar_convert(tmp, wtmp[i]);
