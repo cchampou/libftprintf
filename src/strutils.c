@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 14:58:40 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/22 16:47:32 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/08 14:51:04 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	push_right(t_parse *e, char c, size_t nb)
 
 	i = 0;
 	if (e->length == 0)
-		e->length = strlen(e->raw);
+		e->length = ft_strlen(e->raw);
 	e->length += nb;
 	if (!(sout = (char*)malloc(sizeof(char) * (e->length + 1))))
 		exit(-1);
