@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/06 11:56:55 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/22 18:18:40 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/08 14:55:30 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		copy_raw(char **s, t_parse **list)
 		e = create();
 		while ((*s)[i] != '\0' && (*s)[i] != '%')
 			i++;
-		e->raw = strndup(*s, i);
+		e->raw = ft_strndup(*s, i);
 		push_back(list, e);
 		*s = *s + i;
 	}

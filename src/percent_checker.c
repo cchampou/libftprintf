@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 23:31:15 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/13 09:35:34 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/08 14:56:01 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		check_percent(char **s, t_parse *e)
 {
 	while (**s == ' ')
 		(*s)++;
-	e->raw = strndup(*s, 1);
+	e->raw = ft_strndup(*s, 1);
 	(*s)++;
 	return (1);
 }

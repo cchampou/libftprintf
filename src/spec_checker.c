@@ -6,7 +6,7 @@
 /*   By: cchampou <cchampou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 23:26:44 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/05 12:44:55 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/08 14:56:28 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		check_spec(char **s, t_parse *e)
 	|| **s == 'x' || **s == 'X' || **s == 'c'
 	|| **s == 'C')
 	{
-		e->spec = strndup(*s, 1);
+		e->spec = ft_strndup(*s, 1);
 		(*s)++;
 		return (1);
 	}
