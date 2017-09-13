@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 16:00:32 by cchampou          #+#    #+#             */
-/*   Updated: 2017/06/22 18:14:30 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/13 18:56:19 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	get_int(t_parse *e, va_list *ap)
 		e->len = ft_strdup("l");
 	if (e->len == NULL)
 		e->raw = ft_itoa(va_arg(*ap, intmax_t));
-	else if (!strcmp(e->len, "hh"))
+	else if (!ft_strcmp(e->len, "hh"))
 		e->raw = ft_itoa((signed char)va_arg(*ap, intmax_t));
-	else if (!strcmp(e->len, "h"))
+	else if (!ft_strcmp(e->len, "h"))
 		e->raw = ft_itoa((short int)va_arg(*ap, intmax_t));
-	else if (!strcmp(e->len, "l"))
+	else if (!ft_strcmp(e->len, "l"))
 		e->raw = ft_imtoa(((long int)va_arg(*ap, long int)));
-	else if (!strcmp(e->len, "ll"))
+	else if (!ft_strcmp(e->len, "ll"))
 		e->raw = ft_imtoa(((long long int)va_arg(*ap, intmax_t)));
-	else if (!strcmp(e->len, "j"))
+	else if (!ft_strcmp(e->len, "j"))
 		e->raw = ft_imtoa((va_arg(*ap, intmax_t)));
-	else if (!strcmp(e->len, "z"))
+	else if (!ft_strcmp(e->len, "z"))
 		e->raw = ft_imtoa((va_arg(*ap, size_t)));
 }
 
@@ -38,17 +38,17 @@ void	get_uint(t_parse *e, va_list *ap)
 		e->len = ft_strdup("l");
 	if (e->len == NULL)
 		e->raw = ft_uimtoa(va_arg(*ap, unsigned int));
-	else if (!strcmp(e->len, "hh"))
+	else if (!ft_strcmp(e->len, "hh"))
 		e->raw = ft_uimtoa((unsigned char)va_arg(*ap, unsigned int));
-	else if (!strcmp(e->len, "h"))
+	else if (!ft_strcmp(e->len, "h"))
 		e->raw = ft_uimtoa((unsigned short int)va_arg(*ap, unsigned int));
-	else if (!strcmp(e->len, "l"))
+	else if (!ft_strcmp(e->len, "l"))
 		e->raw = ft_uimtoa((unsigned long int)va_arg(*ap, uintmax_t));
-	else if (!strcmp(e->len, "ll"))
+	else if (!ft_strcmp(e->len, "ll"))
 		e->raw = ft_uimtoa((unsigned long long int)va_arg(*ap, uintmax_t));
-	else if (!strcmp(e->len, "j"))
+	else if (!ft_strcmp(e->len, "j"))
 		e->raw = ft_uimtoa(va_arg(*ap, uintmax_t));
-	else if (!strcmp(e->len, "z"))
+	else if (!ft_strcmp(e->len, "z"))
 		e->raw = ft_uimtoa((size_t)va_arg(*ap, uintmax_t));
 }
 
