@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 11:01:39 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/08 16:45:02 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/13 18:10:57 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	reduce_value(t_parse *e)
 		e->raw[2] = 0;
 		e->length = 2;
 	}
-	if (e->hashtag && (e->spec[0] == 'o' || e->spec[0] == 'O' || e->spec[0] == 'x'))
+	if (e->hashtag && (e->spec[0] == 'o' || e->spec[0] == 'O'
+				|| e->spec[0] == 'x'))
 	{
 	}
 	else
