@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 12:18:42 by cchampou          #+#    #+#             */
-/*   Updated: 2016/11/26 12:50:26 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/26 17:54:59 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memalloc(size_t size)
 	i = 0;
 	if (!(ptr = (unsigned char*)malloc(sizeof(char) * (size + 1)))
 			|| size > 65535)
-		return (NULL);
+		exit(-1);
 	while (i < size)
 		ptr[i++] = 0;
 	ptr[i] = 0;
